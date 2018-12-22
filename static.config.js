@@ -4,9 +4,9 @@ import grayMatter from 'gray-matter';
 
 import aboutMarkdown from './contents/about.md';
 import indexMarkdown from './contents/index.md';
-import * as articleMarkdowns from './contents/articles/*.md';
+import * as wikiArticleMarkdowns from './contents/wiki/*.md';
 
-const articleIds = Object.keys(articleMarkdowns);
+const wikiArticleIds = Object.keys(wikiArticleMarkdowns);
 
 export default {
   plugins: ['react-static-plugin-typescript', 'react-static-plugin-emotion'],
@@ -16,9 +16,9 @@ export default {
 };
 
 function getRoutes() {
-  const articles = getArticles();
+  const wikiArticles = getWikiArticles();
 
-  const articleRoutes = articles.map(article => {
+  const wikiRoutes = wikiArticles.map(article => {
     return {
       path: getArticlePath(article.id),
       component: 'src/containers/Article',
@@ -33,9 +33,11 @@ function getRoutes() {
       getData: () => ({
         content: processMarkdown(indexMarkdown, {
           id: 'index',
-          linkingIds: articleIds,
+          linkingIds: wikiArticleIds,
         }),
-        recentArticles: articles.sort((x, y) => x.date - y.date).slice(0, 10),
+        recentArticles: wikiArticles
+          .sort((x, y) => x.date - y.date)
+          .slice(0, 20),
       }),
     },
     {
@@ -44,11 +46,18 @@ function getRoutes() {
       getData: () => ({
         content: processMarkdown(aboutMarkdown, {
           id: '소개',
-          linkingIds: articleIds,
+          linkingIds: wikiArticleIds,
         }),
       }),
     },
-    ...articleRoutes,
+    {
+      path: '/articles',
+      component: 'src/containers/Articles',
+      getData: () => ({
+        content: wikiArticles,
+      }),
+    },
+    ...wikiRoutes,
   ];
 }
 
@@ -56,12 +65,12 @@ function getArticlePath(articleId) {
   return `/article/${articleId}`;
 }
 
-function getArticles() {
-  return articleIds.map(id => {
-    const articleMarkdown = articleMarkdowns[id];
+function getWikiArticles() {
+  return wikiArticleIds.map(id => {
+    const articleMarkdown = wikiArticleMarkdowns[id];
     return processMarkdown(articleMarkdown, {
       id: id,
-      linkingIds: articleIds,
+      linkingIds: wikiArticleIds,
     });
   });
 }
