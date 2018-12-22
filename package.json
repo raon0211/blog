@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "react-static start"
+    "start": "del-cli tmp && react-static start",
+    "build": "react-static build"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
     "babel-plugin-import-glob": "^2.0.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-md-import-to-string": "^1.0.6",
+    "del-cli": "^1.1.0",
     "react-static-plugin-emotion": "^6.0.8"
   }
 }
