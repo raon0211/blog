@@ -7,7 +7,8 @@ export const Sizes = {
   small: '0.5rem',
   regular: '1rem',
   medium: '1.25rem',
-  large: '2rem',
+  large: '1.5rem',
+  xLarge: '2.5rem',
 };
 
 export const Colors = {
@@ -69,12 +70,21 @@ export const Flex = {
   spaceBetweenItems: {
     justifyContent: 'space-between',
   },
+  alignCenter: {
+    alignItems: 'center',
+  },
 };
 
 export const Typography = {
   text: {
     fontSize: Sizes.regular,
     color: Colors.text,
+    fontWeight: 400,
+    lineHeight: 1.6,
+  },
+  secondaryText: {
+    fontSize: Sizes.regular,
+    color: Colors.textSecondary,
     fontWeight: 400,
     lineHeight: 1.6,
   },
@@ -89,5 +99,9 @@ export const Typography = {
     fontSize: Sizes.medium,
     color: Colors.text,
     fontWeight: 700,
+  },
+  subtitle: {
+    fontSize: Sizes.medium,
+    color: Colors.text,
   },
 };

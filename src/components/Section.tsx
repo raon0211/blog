@@ -7,7 +7,7 @@ interface Props {
 
 export default function Section({ children }: Props) {
   return (
-    <section css={[Margins.vertical.medium, Margins.horizontal.regular]}>
+    <section css={[Margins.horizontal.regular, Margins.verticalList.xLarge]}>
       {children}
     </section>
   );

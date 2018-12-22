@@ -10,9 +10,10 @@ export default function Header() {
         Paddings.horizontal.medium,
         Flex.horizontal,
         Flex.spaceBetweenItems,
+        Flex.alignCenter,
       ]}
     >
-      <Heading>Jin</Heading>
+      <Heading css={[Margins.vertical.none]}>Jin</Heading>
       <nav>
         <HeaderLink href="/articles">글뭉치</HeaderLink>
         <HeaderLink href="/about">소개</HeaderLink>
