@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Margins, Typography, Paddings } from '../style/constants';
-import { headingCss, paragraphCss } from '../style/components';
+import { headingCss, paragraphCss, linkCss } from '../style/components';
 
 interface Props {
   className?: string;
@@ -14,7 +14,7 @@ export default function Markdown({ className, html }: Props) {
       css={{
         '& h1': headingCss,
         '& p': paragraphCss,
-        '& a': [Typography.link],
+        '& a': linkCss,
         '& ul': [Margins.vertical.medium, Paddings.left.large],
         '& li': [
           Margins.vertical.regular,

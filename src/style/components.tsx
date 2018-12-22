@@ -43,3 +43,13 @@ export function Paragraph({ className, children }: Props) {
     </p>
   );
 }
+
+export const linkCss = [Typography.link];
+
+interface LinkProps {
+  href: string;
+}
+
+export function Link(props: Props & LinkProps) {
+  return <a css={linkCss} {...props} />;
+}
