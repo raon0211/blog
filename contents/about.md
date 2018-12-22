@@ -1,4 +1,5 @@
-- **박서진** (Sojin Park)
+**박서진** (Sojin Park)
+
 - [Facebook](https://www.facebook.com/suhjin.park)
 - [LinkedIn](https://www.linkedin.com/in/raon0211/)
 
