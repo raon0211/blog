@@ -26,7 +26,7 @@ export default function Markdown({ className, html }: Props) {
           Margins.bottom.small,
           { fontWeight: 700 },
         ],
-        '& p + p': paragraphCss,
+        '& p': paragraphCss,
         '& a': linkCss,
         '& ul': [Paddings.left.large],
         '& > p + ul': [Margins.vertical.medium],

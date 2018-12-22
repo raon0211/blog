@@ -50,7 +50,11 @@ export function Subheading({ className, children }: Props) {
   );
 }
 
-export const paragraphCss = [Margins.vertical.regular, Typography.text];
+export const paragraphCss = [
+  Margins.vertical.none,
+  Margins.verticalList.regular,
+  Typography.text,
+];
 
 export function Paragraph({ className, children }: Props) {
   return (

@@ -7,7 +7,7 @@ import {
   Margins,
   Borders,
 } from '../style/constants';
-import { Heading } from '../style/components';
+import { Heading, headingCss } from '../style/components';
 
 export default function Header() {
   return (
@@ -20,11 +20,18 @@ export default function Header() {
         Flex.alignItemsToCenter,
       ]}
     >
-      <Heading
-        css={[Margins.vertical.none, Paddings.bottom.none, Borders.none]}
+      <a
+        href="/"
+        css={[
+          headingCss,
+          Margins.vertical.none,
+          Paddings.bottom.none,
+          Borders.none,
+          { textDecoration: 'none' },
+        ]}
       >
         Jin
-      </Heading>
+      </a>
       <nav>
         <HeaderLink href="/articles">글뭉치</HeaderLink>
         <HeaderLink href="/about">소개</HeaderLink>
