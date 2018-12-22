@@ -1,8 +1,11 @@
-import indexMarkdown from './contents/index.md';
-import * as articleMarkdowns from './contents/articles/*.md';
 import path from 'path';
 import marked from 'marked';
 import grayMatter from 'gray-matter';
+
+import indexMarkdown from './contents/index.md';
+import * as articleMarkdowns from './contents/articles/*.md';
+
+const articleIds = Object.keys(articleMarkdowns);
 
 export default {
   plugins: ['react-static-plugin-typescript', 'react-static-plugin-emotion'],
@@ -16,7 +19,7 @@ function getRoutes() {
 
   const articleRoutes = articles.map(article => {
     return {
-      path: `article/${article.id}`,
+      path: getArticlePath(article.id),
       component: 'src/containers/Article',
       getData: () => ({ article }),
     };
@@ -27,35 +30,54 @@ function getRoutes() {
       path: '/',
       component: 'src/containers/Index',
       getData: () => ({
-        article: getIndexContent(),
+        content: getIndexContent(),
+        recentArticles: articles.sort((x, y) => x.date - y.date).slice(0, 10),
       }),
     },
     ...articleRoutes,
   ];
 }
 
-function getIndexContent() {
-  return parseMarkdown(indexMarkdown, 'index');
+function getArticlePath(articleId) {
+  return `/article/${articleId}`;
 }
 
-function getArticles() {
-  const articleIds = Object.keys(articleMarkdowns);
-
-  return articleIds.map(id => {
-    const articleMarkdown = articleMarkdowns[id];
-    return parseMarkdown(articleMarkdown, id);
+function getIndexContent() {
+  return processMarkdown(indexMarkdown, {
+    id: 'index',
+    linkingIds: articleIds,
   });
 }
 
-function parseMarkdown(markdown, id) {
+function getArticles() {
+  return articleIds.map(id => {
+    const articleMarkdown = articleMarkdowns[id];
+    return processMarkdown(articleMarkdown, {
+      id: id,
+      linkingIds: articleIds,
+    });
+  });
+}
+
+function processMarkdown(markdown, { id, linkingIds = [] }) {
   const { content, data } = grayMatter(markdown);
-  const html = marked(content);
+  const html = marked(linkContent(content, linkingIds));
 
   return {
     html,
     id: decamelize(id),
     ...data,
+    date: new Date(data.date),
   };
+}
+
+function linkContent(content, linkingIds) {
+  return linkingIds.reduce((linkingContent, linkingId) => {
+    return linkingContent.replace(
+      new RegExp(linkingId, 'g'),
+      `[${linkingId}](${getArticlePath(linkingId)})`
+    );
+  }, content);
 }
 
 function decamelize(str) {

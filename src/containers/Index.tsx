@@ -1,27 +1,52 @@
 import * as React from 'react';
 import { withRouteData } from 'react-static';
 import { Article } from './Article';
-import { Heading } from '../style/components';
-import { Margins } from '../style/constants';
+import { Heading, Subheading, Link } from '../style/components';
+import { Margins, Typography, Flex } from '../style/constants';
 import Markdown from '../components/Markdown';
 import Section from '../components/Section';
+import { format } from 'date-fns';
 
 interface Props {
   content: Article;
+  recentArticles: Article[];
 }
 
-function Index({ content }: Props) {
+function Index({ content, recentArticles }: Props) {
   return (
-    <Section>
-      <Markdown html={content.html} />
-    </Section>
+    <>
+      <Section>
+        <Markdown html={content.html} />
+      </Section>
+      <Section>
+        <Heading>최근 업데이트</Heading>
+        {recentArticles.map(article => (
+          <div
+            key={article.id}
+            css={[
+              Margins.verticalList.xSmall,
+              Flex.horizontal,
+              Flex.spaceBetweenItems,
+            ]}
+          >
+            <Link href={`/article/${article.id}`} css={[Margins.bottom.small]}>
+              {article.id}
+            </Link>{' '}
+            <span css={Typography.secondaryText}>
+              ({format(article.date, 'YYYY. M. D.')})
+            </span>
+          </div>
+        ))}
+      </Section>
+    </>
   );
 }
 
 interface RouteData {
-  article: Article;
+  content: Article;
+  recentArticles: Article[];
 }
 
-export default withRouteData(({ article }: RouteData) => {
-  return <Index content={article} />;
+export default withRouteData(({ content, recentArticles }: RouteData) => {
+  return <Index content={content} recentArticles={recentArticles} />;
 });
