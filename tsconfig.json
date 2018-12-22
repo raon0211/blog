@@ -9,7 +9,8 @@
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": "./",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["node"]
   },
   "exclude": ["dist/**/*", "public/**/*", "node_modules"]
 }

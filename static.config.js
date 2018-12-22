@@ -1,6 +1,7 @@
 import * as articleMarkdowns from './contents/articles/*.md';
 import path from 'path';
 import marked from 'marked';
+import grayMatter from 'gray-matter';
 
 export default {
   plugins: ['react-static-plugin-typescript'],
@@ -9,10 +10,49 @@ export default {
   getRoutes,
 };
 
-async function getRoutes() {
-  const articles = await getArticles();
+function getRoutes() {
+  const articles = getArticles();
+
+  const articleRoutes = articles.map(article => {
+    return {
+      path: `article/${article.id}`,
+      component: 'src/containers/Article',
+      getData: () => ({ article }),
+    };
+  });
+
+  return [
+    {
+      path: '/',
+      component: 'src/containers/Index',
+      getData: () => ({
+        articles,
+      }),
+    },
+    ...articleRoutes,
+  ];
 }
 
-async function getArticles() {
-  return Object.keys(articleMarkdowns);
+function getArticles() {
+  const articleIds = Object.keys(articleMarkdowns);
+
+  return articleIds.map(id => {
+    const articleMarkdown = articleMarkdowns[id];
+    return parseMarkdown(articleMarkdown, id);
+  });
+}
+
+function parseMarkdown(markdown, id) {
+  const { content, data } = grayMatter(markdown);
+  const html = marked(content);
+
+  return {
+    content: html,
+    id: decamelize(id),
+    ...data,
+  };
+}
+
+function decamelize(str) {
+  return str.replace(/-/g, ' ');
 }

@@ -1,6 +1,10 @@
 import * as React from 'react';
-import { render } from 'react-dom';
+import * as ReactDOM from 'react-dom';
+import App from './containers/App';
 
-export default function() {
-  render(<div />, document.getElementById('root'));
+if (typeof document !== undefined) {
+  const render = module.hot ? ReactDOM.render : ReactDOM.hydrate;
+  render(<App />, document.getElementById('root'));
 }
+
+export default App;
