@@ -11,3 +11,14 @@ strong {
 p {
   margin: 0;
 }
+
+#root {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+  :root {
+    font-size: 18px;
+  }
+}
