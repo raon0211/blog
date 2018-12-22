@@ -4,13 +4,7 @@ import { Heading, Title } from '../style/components';
 import Section from '../components/Section';
 import Markdown from '../components/Markdown';
 import { Margins, Typography } from '../style/constants';
-
-export interface Article {
-  id: string;
-  category: string[];
-  html: string;
-  date: Date;
-}
+import { Article } from '../models/Article';
 
 interface Props {
   article: Article;

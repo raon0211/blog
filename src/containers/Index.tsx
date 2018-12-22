@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { withRouteData } from 'react-static';
-import { Article } from './Article';
 import { Heading, Subheading, Link } from '../style/components';
 import { Margins, Typography, Flex } from '../style/constants';
 import Markdown from '../components/Markdown';
 import Section from '../components/Section';
 import { format } from 'date-fns';
+import { Article } from '../models/Article';
 
 interface Props {
   content: Article;
