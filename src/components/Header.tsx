@@ -1,19 +1,30 @@
 import * as React from 'react';
-import { Paddings, Flex, Typography, Sizes, Margins } from '../style/constants';
+import {
+  Paddings,
+  Flex,
+  Typography,
+  Sizes,
+  Margins,
+  Borders,
+} from '../style/constants';
 import { Heading } from '../style/components';
 
 export default function Header() {
   return (
     <header
       css={[
-        Paddings.vertical.medium,
+        Paddings.top.medium,
         Paddings.horizontal.medium,
         Flex.horizontal,
         Flex.spaceBetweenItems,
-        Flex.alignCenter,
+        Flex.alignItemsToCenter,
       ]}
     >
-      <Heading css={[Margins.vertical.none]}>Jin</Heading>
+      <Heading
+        css={[Margins.vertical.none, Paddings.bottom.none, Borders.none]}
+      >
+        Jin
+      </Heading>
       <nav>
         <HeaderLink href="/articles">글뭉치</HeaderLink>
         <HeaderLink href="/about">소개</HeaderLink>

@@ -1,15 +1,31 @@
 import * as React from 'react';
-import { Typography, Margins } from './constants';
+import { Typography, Margins, Paddings, Borders } from './constants';
 
 interface Props {
   className?: string;
   children: React.ReactNode;
 }
 
-export const headingCss = [
-  Margins.top.large,
-  Margins.bottom.medium,
+export const titleCss = [
   Typography.title,
+  Margins.top.xxLarge,
+  Margins.bottom.xLarge,
+];
+
+export function Title({ className, children }: Props) {
+  return (
+    <h1 className={className} css={titleCss}>
+      {children}
+    </h1>
+  );
+}
+
+export const headingCss = [
+  Margins.top.xxLarge,
+  Margins.bottom.medium,
+  Paddings.bottom.small,
+  Typography.h1,
+  Borders.bottomIndented,
 ];
 
 export function Heading({ className, children }: Props) {
@@ -21,9 +37,9 @@ export function Heading({ className, children }: Props) {
 }
 
 export const subheadingCss = [
-  Margins.top.large,
+  Margins.top.xLarge,
   Margins.bottom.regular,
-  Typography.subtitle,
+  Typography.h2,
 ];
 
 export function Subheading({ className, children }: Props) {

@@ -1,14 +1,16 @@
 import { mapValues } from 'lodash';
 import { makeStyleFromSizes, copyMapper } from './helpers';
+import css from '@emotion/css';
 
 export const Sizes = {
   none: 0,
   xSmall: '0.25rem',
-  small: '0.5rem',
+  small: '0.75rem',
   regular: '1rem',
   medium: '1.25rem',
   large: '1.5rem',
-  xLarge: '2.5rem',
+  xLarge: '2rem',
+  xxLarge: '3.5rem',
 };
 
 export const Colors = {
@@ -70,7 +72,7 @@ export const Flex = {
   spaceBetweenItems: {
     justifyContent: 'space-between',
   },
-  alignCenter: {
+  alignItemsToCenter: {
     alignItems: 'center',
   },
 };
@@ -93,15 +95,41 @@ export const Typography = {
     color: Colors.text,
     textDecoration: 'underline',
     fontWeight: 400,
-    lineHeight: 1.6,
   },
   title: {
+    fontSize: Sizes.large,
+    color: Colors.text,
+    fontWeight: 700,
+  },
+  h1: {
     fontSize: Sizes.medium,
     color: Colors.text,
     fontWeight: 700,
   },
-  subtitle: {
-    fontSize: Sizes.medium,
+  h2: {
+    fontSize: '1.1rem',
     color: Colors.text,
+    fontWeight: 700,
   },
+};
+
+export const Borders = {
+  none: css`
+    &::after {
+      display: none;
+    }
+  `,
+  bottomIndented: css`
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      position: absolute;
+      content: ' ';
+      border-bottom: 1px solid #eee;
+      width: 100vw;
+      bottom: 0;
+      left: 0;
+    }
+  `,
 };

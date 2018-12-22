@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { withRouteData } from 'react-static';
-import { Heading } from '../style/components';
+import { Heading, Title } from '../style/components';
 import Section from '../components/Section';
 import Markdown from '../components/Markdown';
+import { Margins, Typography } from '../style/constants';
 
 export interface Article {
   id: string;
@@ -20,16 +21,16 @@ function Article({ article }: Props) {
 
   return (
     <Section>
-      <Heading>{id}</Heading>
+      <Title>{id}</Title>
       <Markdown html={html} />
     </Section>
   );
 }
 
 interface RouteData {
-  article: Article;
+  content: Article;
 }
 
-export default withRouteData(({ article }: RouteData) => {
-  return <Article article={article} />;
+export default withRouteData(({ content }: RouteData) => {
+  return <Article article={content} />;
 });

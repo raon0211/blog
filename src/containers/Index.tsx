@@ -24,14 +24,13 @@ function Index({ content, recentArticles }: Props) {
           <div
             key={article.id}
             css={[
-              Margins.verticalList.xSmall,
+              Margins.vertical.small,
               Flex.horizontal,
               Flex.spaceBetweenItems,
+              Flex.alignItemsToCenter,
             ]}
           >
-            <Link href={`/article/${article.id}`} css={[Margins.bottom.small]}>
-              {article.id}
-            </Link>{' '}
+            <Link href={`/article/${article.id}`}>{article.id}</Link>{' '}
             <span css={Typography.secondaryText}>
               ({format(article.date, 'YYYY. M. D.')})
             </span>

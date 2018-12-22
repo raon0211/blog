@@ -3,3 +3,11 @@
 html {
   font-family: 'Noto Sans KR', sans-serif;
 }
+
+strong {
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
