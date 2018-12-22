@@ -5,6 +5,7 @@ import { Margins, Typography, Flex } from '../style/constants';
 import Markdown from '../components/Markdown';
 import Section from '../components/Section';
 import { format } from 'date-fns';
+import ArticleItem from '../components/ArticleItem';
 import { Article } from '../models/Article';
 
 interface Props {
@@ -21,20 +22,7 @@ function Index({ content, recentArticles }: Props) {
       <Section>
         <Heading>최근 업데이트</Heading>
         {recentArticles.map(article => (
-          <div
-            key={article.id}
-            css={[
-              Margins.vertical.small,
-              Flex.horizontal,
-              Flex.spaceBetweenItems,
-              Flex.alignItemsToCenter,
-            ]}
-          >
-            <Link href={`/article/${article.id}`}>{article.id}</Link>{' '}
-            <span css={Typography.secondaryText}>
-              ({format(article.date, 'YYYY. M. D.')})
-            </span>
-          </div>
+          <ArticleItem key={article.id} article={article} />
         ))}
       </Section>
     </>
