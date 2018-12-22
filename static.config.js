@@ -4,7 +4,7 @@ import marked from 'marked';
 import grayMatter from 'gray-matter';
 
 export default {
-  plugins: ['react-static-plugin-typescript'],
+  plugins: ['react-static-plugin-typescript', 'react-static-plugin-emotion'],
   entry: path.join(__dirname, 'src', 'index.tsx'),
   extensions: ['.ts', '.tsx'],
   getRoutes,

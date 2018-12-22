@@ -8,9 +8,8 @@
     "removeComments": false,
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "./",
     "esModuleInterop": true,
-    "types": ["node"]
+    "types": ["node", "@emotion/core"]
   },
   "exclude": ["dist/**/*", "public/**/*", "node_modules"]
 }

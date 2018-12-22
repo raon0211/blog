@@ -1,5 +1,6 @@
 {
   "extends": "react-static/.babelrc",
+  "presets": ["@emotion/babel-preset-css-prop"],
   "plugins": [
     "babel-plugin-module-resolver",
     "babel-plugin-import-glob",
