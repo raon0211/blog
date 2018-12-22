@@ -7,6 +7,7 @@ import Section from '../components/Section';
 import { format } from 'date-fns';
 import ArticleItem from '../components/ArticleItem';
 import { Article } from '../models/Article';
+import { Helmet } from 'react-helmet';
 
 interface Props {
   content: Article;
@@ -16,6 +17,9 @@ interface Props {
 function Index({ content, recentArticles }: Props) {
   return (
     <>
+      <Helmet>
+        <title>Sojin Park</title>
+      </Helmet>
       <Section>
         <Markdown html={content.html} />
       </Section>

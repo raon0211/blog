@@ -5,6 +5,7 @@ import Section from '../components/Section';
 import Markdown from '../components/Markdown';
 import { Margins, Typography } from '../style/constants';
 import { Article } from '../models/Article';
+import { Helmet } from 'react-helmet';
 
 interface Props {
   article: Article;
@@ -15,6 +16,9 @@ function Article({ article }: Props) {
 
   return (
     <Section>
+      <Helmet>
+        <title>{id}</title>
+      </Helmet>
       <Title>{id}</Title>
       <Markdown html={html} />
     </Section>

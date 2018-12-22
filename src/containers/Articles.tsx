@@ -7,6 +7,7 @@ import { Margins, Typography } from '../style/constants';
 import { Article } from '../models/Article';
 import { disassemble } from 'hangul-js';
 import ArticleItem from '../components/ArticleItem';
+import { Helmet } from 'react-helmet';
 
 interface Props {
   articles: Article[];
@@ -33,6 +34,9 @@ function Articles({ articles }: Props) {
 
   return (
     <Section>
+      <Helmet>
+        <title>글뭉치</title>
+      </Helmet>
       <Title>글뭉치</Title>
       <Paragraph>현재 {articles.length}개의 글이 있습니다.</Paragraph>
       {Object.keys(articlesByFirstLetter).map(firstLetter => {
