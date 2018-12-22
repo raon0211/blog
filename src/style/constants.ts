@@ -2,6 +2,7 @@ import { mapValues } from 'lodash';
 import { makeStyleFromSizes, copyMapper } from './helpers';
 
 export const Sizes = {
+  none: 0,
   xSmall: '0.25rem',
   small: '0.5rem',
   regular: '1rem',
@@ -75,14 +76,14 @@ export const Typography = {
     fontSize: Sizes.regular,
     color: Colors.text,
     fontWeight: 400,
-    lineHeight: 1.5,
+    lineHeight: 1.6,
   },
   link: {
     fontSize: Sizes.regular,
-    color: Colors.accent,
-    textDecoration: 'none',
-    fontWeight: 700,
-    lineHeight: 1.5,
+    color: Colors.text,
+    textDecoration: 'underline',
+    fontWeight: 400,
+    lineHeight: 1.6,
   },
   title: {
     fontSize: Sizes.medium,
