@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { withRouteData } from 'react-static';
+import { Heading } from '../style/components';
+import Section from '../components/Section';
+import Markdown from '../components/Markdown';
 
 export interface Article {
   id: string;
   category: string[];
-  content: string;
+  html: string;
 }
 
 interface Props {
@@ -12,13 +15,13 @@ interface Props {
 }
 
 function Article({ article }: Props) {
-  const { category, content } = article;
+  const { id, category, html } = article;
 
   return (
-    <article>
-      {category}
-      <div dangerouslySetInnerHTML={{ __html: content }} />
-    </article>
+    <Section>
+      <Heading>{id}</Heading>
+      <Markdown html={html} />
+    </Section>
   );
 }
 

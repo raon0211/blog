@@ -1,3 +1,4 @@
+import indexMarkdown from './contents/index.md';
 import * as articleMarkdowns from './contents/articles/*.md';
 import path from 'path';
 import marked from 'marked';
@@ -26,11 +27,15 @@ function getRoutes() {
       path: '/',
       component: 'src/containers/Index',
       getData: () => ({
-        articles,
+        article: getIndexContent(),
       }),
     },
     ...articleRoutes,
   ];
+}
+
+function getIndexContent() {
+  return parseMarkdown(indexMarkdown, 'index');
 }
 
 function getArticles() {
@@ -47,7 +52,7 @@ function parseMarkdown(markdown, id) {
   const html = marked(content);
 
   return {
-    content: html,
+    html,
     id: decamelize(id),
     ...data,
   };

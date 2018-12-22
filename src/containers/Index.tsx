@@ -1,28 +1,27 @@
 import * as React from 'react';
 import { withRouteData } from 'react-static';
 import { Article } from './Article';
+import { Heading } from '../style/components';
+import { Margins } from '../style/constants';
+import Markdown from '../components/Markdown';
+import Section from '../components/Section';
 
 interface Props {
-  articles: Article[];
+  content: Article;
 }
 
-function Index({ articles }: Props) {
-  console.log(articles);
+function Index({ content }: Props) {
   return (
-    <article>
-      {articles.map(({ id }) => (
-        <a key={id} href={`/article/${id}`}>
-          {id}
-        </a>
-      ))}
-    </article>
+    <Section>
+      <Markdown html={content.html} />
+    </Section>
   );
 }
 
 interface RouteData {
-  articles: Article[];
+  article: Article;
 }
 
-export default withRouteData(({ articles }: RouteData) => {
-  return <Index articles={articles} />;
+export default withRouteData(({ article }: RouteData) => {
+  return <Index content={article} />;
 });
