@@ -1,0 +1,8 @@
+{
+  "extends": "react-static/.babelrc",
+  "plugins": [
+    "babel-plugin-module-resolver",
+    "babel-plugin-import-glob",
+    "babel-plugin-transform-md-import-to-string"
+  ]
+}
