@@ -6,14 +6,51 @@ import aboutMarkdown from './contents/about.md';
 import indexMarkdown from './contents/index.md';
 import * as wikiArticleMarkdowns from './contents/wiki/*.md';
 
+const siteRoot = 'https://sojin.io';
 const wikiLinkMap = createLinkMap(wikiArticleMarkdowns);
 
 export default {
+  siteRoot,
   plugins: ['react-static-plugin-typescript', 'react-static-plugin-emotion'],
   entry: path.join(__dirname, 'src', 'index.tsx'),
   extensions: ['.ts', '.tsx'],
   getRoutes,
+  paths: {
+    public: path.join(__dirname, 'static'),
+  },
+  Document,
 };
+
+function Document({ Html, Head, Body, children, renderMeta }) {
+  return (
+    <Html>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta content="IE=edge,chrome=1" httpEquiv="X-UA-Compatible" />
+
+        <meta property="og:title" content="Sojin Park" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://sojin.me/" />
+        <meta
+          property="og:description"
+          content="Sojin Park's personal website and blog"
+        />
+
+        <link
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR"
+          rel="stylesheet"
+        />
+
+        {renderMeta.styleTags}
+        <link rel="stylesheet" href="/prism/prism.css" />
+      </Head>
+      <Body>{children}</Body>
+      <script type="text/javascript" src="/prism/prism.js" />
+    </Html>
+  );
+}
 
 function getRoutes() {
   const wikiArticles = getWikiArticles(wikiArticleMarkdowns);
@@ -32,7 +69,7 @@ function getRoutes() {
       component: 'src/containers/Index',
       getData: () => ({
         content: processMarkdown(indexMarkdown, {
-          id: 'index',
+          id: 'Jin',
           linkMap: wikiLinkMap,
         }),
         recentArticles: wikiArticles
@@ -123,5 +160,5 @@ function linkContent(content, linkMap) {
 }
 
 function decamelize(str) {
-  return str.replace(/-/g, ' ');
+  return str.replace(/\_/g, ' ');
 }
