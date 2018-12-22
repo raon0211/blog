@@ -2,6 +2,7 @@ import path from 'path';
 import marked from 'marked';
 import grayMatter from 'gray-matter';
 
+import aboutMarkdown from './contents/about.md';
 import indexMarkdown from './contents/index.md';
 import * as articleMarkdowns from './contents/articles/*.md';
 
@@ -21,7 +22,7 @@ function getRoutes() {
     return {
       path: getArticlePath(article.id),
       component: 'src/containers/Article',
-      getData: () => ({ article }),
+      getData: () => ({ content: article }),
     };
   });
 
@@ -30,8 +31,21 @@ function getRoutes() {
       path: '/',
       component: 'src/containers/Index',
       getData: () => ({
-        content: getIndexContent(),
+        content: processMarkdown(indexMarkdown, {
+          id: 'index',
+          linkingIds: articleIds,
+        }),
         recentArticles: articles.sort((x, y) => x.date - y.date).slice(0, 10),
+      }),
+    },
+    {
+      path: '/about',
+      component: 'src/containers/Article',
+      getData: () => ({
+        content: processMarkdown(aboutMarkdown, {
+          id: '소개',
+          linkingIds: articleIds,
+        }),
       }),
     },
     ...articleRoutes,
@@ -40,13 +54,6 @@ function getRoutes() {
 
 function getArticlePath(articleId) {
   return `/article/${articleId}`;
-}
-
-function getIndexContent() {
-  return processMarkdown(indexMarkdown, {
-    id: 'index',
-    linkingIds: articleIds,
-  });
 }
 
 function getArticles() {
