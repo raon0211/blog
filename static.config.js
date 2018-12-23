@@ -46,6 +46,11 @@ function Document({ Html, Head, Body, children, renderMeta }) {
           rel="stylesheet"
         />
 
+        <meta
+          name="google-site-verification"
+          content="Sf9XItb9NNczFyBi_dpjkdiCjN-5B5w1o-fCVtvwvfA"
+        />
+
         {renderMeta.styleTags}
       </Head>
       <Body>{children}</Body>
