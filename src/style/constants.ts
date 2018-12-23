@@ -91,10 +91,8 @@ export const Typography = {
     lineHeight: 1.6,
   },
   link: {
-    fontSize: Sizes.regular,
     color: Colors.text,
     textDecoration: 'underline',
-    fontWeight: 400,
   },
   title: {
     fontSize: Sizes.large,
