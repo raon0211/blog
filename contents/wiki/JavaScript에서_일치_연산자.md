@@ -5,7 +5,7 @@ keywords: 일치 연산자, 동등 연산자
 
 JavaScript를 다룬다고 하면 늘 듣는 말이 있다. "예측 불허의 언어", "false와 0이 같은 언어", "true와 1이 같은 언어", ... 이와 관련한 유명한 사진도 있는데 JavaScript에 대한 사람들의 생각을 압축적으로 표현한 것이 아닐까 싶다. (사실 부분적으로 공감이 되는 부분도 있다.)
 
-![Thanks for inventing JavaScript](http://static.sojin.io/images/thanks-for-inventing-javascript.jpg)
+![Thanks for inventing JavaScript](https://static.sojin.io/images/thanks-for-inventing-javascript.jpg)
 
 위의 그림에서 보듯이 `true == 1`, `true + true + true === 3` 등 이해하기 어려운 결과가 많다. 그러나 사실은 뒤에 숨겨져 있는 규칙을 알면 생각보다 단순하다. 
 

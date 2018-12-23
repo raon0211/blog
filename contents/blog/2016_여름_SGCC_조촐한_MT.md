@@ -3,27 +3,27 @@ date: 2016-08-22T20:53:00+09:00
 category: 서강대
 ---
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6732.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6732.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6733.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6733.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6741.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6741.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6742.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6742.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6790.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6790.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6798.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6798.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6783.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6783.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6784.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6784.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6785.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6785.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6772.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6772.JPG)
 
-![](http://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6774.JPG)
+![](https://static.sojin.io/images/2016_여름_SGCC_조촐한_MT/IMG_6774.JPG)
 
 2016년 8월 20일 ~ 8월 21일간 한강 난지 캠핑장에서 서강대학교 컴퓨터 동아리 SGCC가 주최하는 조촐한 MT를 다녀왔다. 사람이 좀 적었지만 오히려 그 덕분에 단합된 모습을 보이지 않았을까 생각한다. 고기도 구워 먹고, 할리갈리도 하고, 포커 비슷한 게임도 배우는 등 정말이지 즐거운 시간이었다.
 
