@@ -3,6 +3,7 @@
   "presets": ["@emotion/babel-preset-css-prop"],
   "plugins": [
     "react-hot-loader/babel",
+    "babel-plugin-lodash",
     "babel-plugin-module-resolver",
     "babel-plugin-import-glob",
     "babel-plugin-transform-md-import-to-string",
