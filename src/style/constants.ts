@@ -110,6 +110,13 @@ export const Typography = {
     color: Colors.text,
     fontWeight: 700,
   },
+  oneLine: {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+  },
+  hideWithEllipsis: {
+    textOverflow: 'ellipsis',
+  },
 };
 
 export const Borders = {

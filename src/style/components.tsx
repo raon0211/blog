@@ -67,6 +67,7 @@ export function Paragraph({ className, children }: Props) {
 export const linkCss = [Typography.link];
 
 interface LinkProps {
+  className?: string;
   href: string;
 }
 
