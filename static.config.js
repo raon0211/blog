@@ -62,22 +62,6 @@ function getRoutes() {
   const wikiArticles = getArticles(wikiArticleMarkdowns);
   const blogArticles = getArticles(blogArticleMarkdowns);
 
-  const wikiRoutes = wikiArticles.map(article => {
-    return {
-      path: getArticlePath(article.id),
-      component: 'src/containers/Article',
-      getData: () => ({ content: article }),
-    };
-  });
-
-  const blogRoutes = blogArticles.map(article => {
-    return {
-      path: getArticlePath(article.id),
-      component: 'src/containers/Article',
-      getData: () => ({ content: article }),
-    };
-  });
-
   return [
     {
       path: '/',
@@ -108,46 +92,54 @@ function getRoutes() {
       getData: () => ({
         title: '글뭉치',
         count: wikiArticles.length,
-        content: wikiArticles
-          .map(article => [article.id, article])
-          .sort(([xTitle], [yTitle]) => xTitle.localeCompare(yTitle))
-          .reduce((sortingArticles, [title, article]) => {
-            const firstLetter = disassemble(title)[0];
-
-            if (sortingArticles[firstLetter] === undefined) {
-              sortingArticles[firstLetter] = [article];
-            } else {
-              sortingArticles[firstLetter].push(article);
-            }
-
-            return sortingArticles;
-          }, {}),
+        content: createFirstCharToArticleMap(wikiArticles),
       }),
     },
     {
       path: '/blog',
       component: 'src/containers/Articles',
       getData: () => ({
-        title: '날적이',
+        title: '끄적끄적',
         count: blogArticles.length,
-        content: blogArticles
-          .sort((x, y) => y.date - x.date)
-          .reduce((sortingArticles, article) => {
-            const key = format(article.date, 'YYYY. M.');
-
-            if (sortingArticles[key] === undefined) {
-              sortingArticles[key] = [article];
-            } else {
-              sortingArticles[key].push(article);
-            }
-
-            return sortingArticles;
-          }, {}),
+        content: createDateToArticleMap(blogArticles),
       }),
     },
-    ...wikiRoutes,
-    ...blogRoutes,
+    ...getArticleRoutes(wikiArticles),
+    ...getArticleRoutes(blogArticles),
   ];
+}
+
+function createFirstCharToArticleMap(articles) {
+  return articles
+    .map(article => [article.id, article])
+    .sort(([xTitle], [yTitle]) => xTitle.localeCompare(yTitle))
+    .reduce((sortingArticles, [title, article]) => {
+      const firstLetter = disassemble(title)[0];
+
+      if (sortingArticles[firstLetter] === undefined) {
+        sortingArticles[firstLetter] = [article];
+      } else {
+        sortingArticles[firstLetter].push(article);
+      }
+
+      return sortingArticles;
+    }, {});
+}
+
+function createDateToArticleMap(articles) {
+  return articles
+    .sort((x, y) => y.date - x.date)
+    .reduce((sortingArticles, article) => {
+      const key = format(article.date, 'YYYY. M.');
+
+      if (sortingArticles[key] === undefined) {
+        sortingArticles[key] = [article];
+      } else {
+        sortingArticles[key].push(article);
+      }
+
+      return sortingArticles;
+    }, {});
 }
 
 function getArticlePath(articleId) {
@@ -161,6 +153,16 @@ function getArticles(markdowns) {
       id: id,
       linkMap: wikiLinkMap,
     });
+  });
+}
+
+function getArticleRoutes(articles) {
+  return articles.map(article => {
+    return {
+      path: getArticlePath(article.id),
+      component: 'src/containers/Article',
+      getData: () => ({ content: article }),
+    };
   });
 }
 
