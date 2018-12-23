@@ -3,7 +3,7 @@ date: 2017-02-18T12:09:00+09:00
 category: 개발
 ---
 
-![](/images/NAVER_D2_Campus_Fest_2016/16487710_878404782263104_8298025497757153516_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16487710_878404782263104_8298025497757153516_o.jpg)
 
 <p style="text-align: center;">
 <b>우수상(150만원/2인)</b>
@@ -21,80 +21,80 @@ D2 Campus Fest는 내년에도 참가하고 싶을 정도로 정말 좋은 대�
 
 # 밋업 1: 2017/2/1(수)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16402705_872753739494875_2357962731079437076_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16402705_872753739494875_2357962731079437076_o.jpg)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16462963_872753482828234_5446291346100464670_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16462963_872753482828234_5446291346100464670_o.jpg)
 
 유성이와 열심히 개발 중..
 
-![](/images/NAVER_D2_Campus_Fest_2016/16402833_872753559494893_6303210400007995005_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16402833_872753559494893_6303210400007995005_o.jpg)
 
 성훈이, 규래와 함께 웃고 떠들기도 했다. 이때만 해도 시간이 많은 줄 알았지..
 
-![](/images/NAVER_D2_Campus_Fest_2016/16300394_872753959494853_3690760298876625463_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16300394_872753959494853_3690760298876625463_o.jpg)
 
 유성이가 [kokoto-httpd](https://github.com/hatamake/kokoto-httpd)에 관해 발표하기도 했다. 이 발표로 D2 Campus Seminar의 발표 연사로 초청받기도 했다! 참 대단하다..
 
-![](/images/NAVER_D2_Campus_Fest_2016/16487079_872754036161512_7557250014163828088_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16487079_872754036161512_7557250014163828088_o.jpg)
 
 발표 후 맛있는 피자 타임.
 
-![](/images/NAVER_D2_Campus_Fest_2016/16487125_872754049494844_5548209090694667322_o--1-.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16487125_872754049494844_5548209090694667322_o--1-.jpg)
 
 단체 사진.
 
 # 밋업 2: 2017/2/8(수)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16601561_878404665596449_4527084890189845441_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16601561_878404665596449_4527084890189845441_o.jpg)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16601811_878404838929765_1064609250782879222_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16601811_878404838929765_1064609250782879222_o.jpg)
 
 오늘도 개발한다!
 
-![](/images/NAVER_D2_Campus_Fest_2016/16487710_878404782263104_8298025497757153516_o-1.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16487710_878404782263104_8298025497757153516_o-1.jpg)
 
 React와 CSS Modules, 번역의 처리 방법에 관해 발표하기도 했다.
 
-![](/images/NAVER_D2_Campus_Fest_2016/16665162_878404615596454_8995396462042669306_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16665162_878404615596454_8995396462042669306_o.jpg)
 
 또 단체 사진.
 
 # 결승전
 
-![](/images/NAVER_D2_Campus_Fest_2016/16804146_882999901803592_5287783274218819714_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16804146_882999901803592_5287783274218819714_o.jpg)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16722482_882999675136948_3696497109780781312_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16722482_882999675136948_3696497109780781312_o.jpg)
 
 발표 준비하는 모습이 도촬당했다! ㅋㅋㅋ
 
-![](/images/NAVER_D2_Campus_Fest_2016/16797352_882999458470303_5992836246303913829_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16797352_882999458470303_5992836246303913829_o.jpg)
 
 Sherlock에 관한 발표를 듣는 중.
 
-![](/images/NAVER_D2_Campus_Fest_2016/16819452_882999785136937_550264428190167860_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16819452_882999785136937_550264428190167860_o.jpg)
 
 우리 서비스 [kokoto](https://github.com/hatamake/kokoto)에 관해 발표하는 중.
 
-![](/images/NAVER_D2_Campus_Fest_2016/16716087_882999885136927_4268229859676508268_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16716087_882999885136927_4268229859676508268_o.jpg)
 
 쉬는 시간. 잘 보면 프로젝터에 우리 사진이..
 
-![](/images/NAVER_D2_Campus_Fest_2016/16707687_882999981803584_4395834038853969067_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16707687_882999981803584_4395834038853969067_o.jpg)
 
 다른 프로젝트에 관해 질문을 남기는 모습도 사진이 찍혔다.
 
-![](/images/NAVER_D2_Campus_Fest_2016/16797731_883000181803564_7198160134266653268_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16797731_883000181803564_7198160134266653268_o.jpg)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16722429_883000218470227_6301186271896732174_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16722429_883000218470227_6301186271896732174_o.jpg)
 
-![](/images/NAVER_D2_Campus_Fest_2016/16700692_883000261803556_537410005334455477_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16700692_883000261803556_537410005334455477_o.jpg)
 
 수상하는 모습.
 
-![](/images/NAVER_D2_Campus_Fest_2016/16707303_883000438470205_7235330443780137188_o.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/16707303_883000438470205_7235330443780137188_o.jpg)
 
 단체 사진으로 마무리!
 
-![](/images/NAVER_D2_Campus_Fest_2016/KakaoTalk_20170217_184747067.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/KakaoTalk_20170217_184747067.jpg)
 
-![](/images/NAVER_D2_Campus_Fest_2016/KakaoTalk_20170218_053141705.jpg)
+![](http://static.sojin.io/images/NAVER_D2_Campus_Fest_2016/KakaoTalk_20170218_053141705.jpg)

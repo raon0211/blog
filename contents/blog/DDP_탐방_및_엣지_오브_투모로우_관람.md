@@ -5,103 +5,103 @@ date: 2014-07-16T15:54:50.000Z
 <p>7월 16일, 학교를 마치고 조유성과 서준영을 만났다. 새로 지어진 DDP(동대문디자인플라자)를 둘러본 후 영화 &lt;엣지 오브 투모로우&gt;를 관람했는데, 하루를 여한 없이 즐겁게 보낼 수 있었던 것 같다. 자정까지 즐겁게 논 것은 꽤 오랜만이다. 반 년 만인가.</p>
 <p>아래는 DDP에서 찍은 사진.</p>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_172339.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_172339.jpg)
 <figcaption>
 DDP 하늘계단. 서준영 안녕?
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_180701.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_180701.jpg)
 <figcaption>
 간송문화전 입구
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_180720.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_180720.jpg)
 <figcaption>
 간송문화전을 다 보고 출구에서 한 컷
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_180808.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_180808.jpg)
 <figcaption>
 기념으로 단체 사진 하나
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_180852.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_180852.jpg)
 <figcaption>
 하늘계단 2. 불규칙적인 곡선 형태가 대단히 인상깊었다.
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_181139.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_181139.jpg)
 <figcaption>
 기울어진 자동문. 처음 보는 것이라서 신기했다.
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_181848.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_181848.jpg)
 <figcaption>
 DDP 외관 1. 외관 촬영 중 찍힌 조유성
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_182047.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_182047.jpg)
 <figcaption>
 DDP 외관 2
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_182426.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_182426.jpg)
 <figcaption>
 DDP 외관 3
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_182801.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_182801.jpg)
 <figcaption>
 DDP 외관 4. 미래로라고 부르는 길이다. (수능 기출문제집이 생각나는 건 함정)
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_182938.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_182938.jpg)
 <figcaption>
 DDP 외관 5. 중간에 옛날 성벽의 모습을 보존해 놓았다.
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_183551.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_183551.jpg)
 <figcaption>
 처음 본 실제 작동 중인 3D 프린터. 생각보다 굉장히 정교했다. 미세한 구멍까지 잘 인쇄하는 것이 인상깊었다.
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_184312.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_184312.jpg)
 <figcaption>
 스핀 체어..라고 하던가? 어쨌든 신기하게 생긴 360도 회전하는 의자. 즐거워하는 서준영 ㅋㅋ
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_184323.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_184323.jpg)
 <figcaption>
 스핀 체어 2. 너무 신기하고 재미있었다.
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_184623.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_184623.jpg)
 <figcaption>
 스핀 체어 3. 조유성 넘어지기 일보 직전 ㅋㅋ
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_202035.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_202035.jpg)
 <figcaption>
 밥을 먹고, 8시경 본 DDP 야경 1. 외벽이 반짝반짝 빛나서 미려했다.
 </figcaption>
 </figure>
 <figure>
-![](/images/migrated-photos/2014/Jul/IMG_20140716_202347.jpg)
+![](http://static.sojin.io/images/migrated-photos/2014/Jul/IMG_20140716_202347.jpg)
 <figcaption>
 8시경 본 DDP 야경 2. 이번에는 지하철역으로 가는 도중, 안에서 찍었다.
 </figcaption>
