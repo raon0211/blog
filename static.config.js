@@ -6,7 +6,7 @@ import aboutMarkdown from './contents/about.md';
 import indexMarkdown from './contents/index.md';
 import * as wikiArticleMarkdowns from './contents/wiki/*.md';
 
-const siteRoot = 'https://sojin.io';
+const siteRoot = '/';
 const wikiLinkMap = createLinkMap(wikiArticleMarkdowns);
 
 export default {
