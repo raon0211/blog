@@ -71,7 +71,7 @@ function getRoutes() {
           linkMap: wikiLinkMap,
         }),
         recentArticles: wikiArticles
-          .sort((x, y) => x.date - y.date)
+          .sort((x, y) => y.date - x.date)
           .slice(0, 20),
       }),
     },
