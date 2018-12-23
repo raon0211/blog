@@ -44,10 +44,8 @@ function Document({ Html, Head, Body, children, renderMeta }) {
         />
 
         {renderMeta.styleTags}
-        <link rel="stylesheet" href="/prism/prism.css" />
       </Head>
       <Body>{children}</Body>
-      <script type="text/javascript" src="/prism/prism.js" />
     </Html>
   );
 }

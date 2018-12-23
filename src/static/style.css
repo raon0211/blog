@@ -20,3 +20,18 @@ p {
     font-size: 18px;
   }
 }
+
+pre[class*='language-'] {
+  margin: 1.25rem 0;
+  font-size: 0.9rem;
+}
+
+code:not([class*='language-']) {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  display: inline-block;
+  background-color: #f5f5f5;
+  padding: 0 4px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  font-size: 0.85rem;
+}
