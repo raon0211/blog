@@ -12,12 +12,14 @@ interface Props {
 }
 
 function Article({ article }: Props) {
-  const { id, category, html } = article;
+  const { id, category, html, markdown } = article;
 
   return (
     <Section>
       <Helmet>
         <title>{id}</title>
+        <meta property="og:title" content={`${id} - Sojin Park`} />
+        <meta property="og:description" content={markdown.slice(0, 50)} />
       </Helmet>
       <Title>{id}</Title>
       <Markdown html={html} />

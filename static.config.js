@@ -117,6 +117,7 @@ function processMarkdown(markdown, { id, linkMap }) {
   return {
     html,
     id: decamelize(id),
+    markdown,
     ...data,
     date: new Date(data.date),
   };
