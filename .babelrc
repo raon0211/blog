@@ -2,8 +2,26 @@
   "extends": "react-static/.babelrc",
   "presets": ["@emotion/babel-preset-css-prop"],
   "plugins": [
+    "react-hot-loader/babel",
     "babel-plugin-module-resolver",
     "babel-plugin-import-glob",
-    "babel-plugin-transform-md-import-to-string"
+    "babel-plugin-transform-md-import-to-string",
+    [
+      "babel-plugin-prismjs",
+      {
+        "languages": [
+          "javascript",
+          "typescript",
+          "css",
+          "markup",
+          "scala",
+          "jsx",
+          "tsx"
+        ],
+        "plugins": ["line-numbers"],
+        "theme": "twilight",
+        "css": true
+      }
+    ]
   ]
 }
