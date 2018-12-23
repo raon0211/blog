@@ -82,7 +82,8 @@ export const Typography = {
     fontSize: Sizes.regular,
     color: Colors.text,
     fontWeight: 400,
-    lineHeight: 1.6,
+    lineHeight: 1.75,
+    letterSpacing: -0.3,
   },
   secondaryText: {
     fontSize: Sizes.regular,

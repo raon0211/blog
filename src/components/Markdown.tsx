@@ -59,8 +59,15 @@ export default class Markdown extends React.PureComponent<Props> {
               margin: '0 auto',
               display: 'block',
               border: '1px solid #f0f0f0',
-            }
-          ]
+            },
+          ],
+          '& > blockquote': [
+            Margins.vertical.xLarge,
+            Paddings.left.medium,
+            {
+              borderLeft: '3px solid #e0e0e0',
+            },
+          ],
         }}
         dangerouslySetInnerHTML={{ __html: html }}
       />

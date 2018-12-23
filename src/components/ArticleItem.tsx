@@ -23,7 +23,7 @@ export default function ArticleItem({ article, shouldShowDate = true }: Props) {
       <Link href={`/article/${article.id}`}>{article.id}</Link>{' '}
       {shouldShowDate && (
         <span css={Typography.secondaryText}>
-          ({format(article.date, 'YYYY. M. D.')})
+          {format(article.date, 'YYYY. M. D.')}
         </span>
       )}
     </div>

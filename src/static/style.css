@@ -35,3 +35,21 @@ code:not([class*='language-']) {
   border: 1px solid #eee;
   font-size: 0.85em;
 }
+
+hr {
+  margin: 2.5rem 0;
+  text-align: center;
+  border: none;
+}
+
+hr::after {
+  content: ' ';
+  width: 50%;
+  border-top: 1px solid #eee;
+  display: inline-block;
+}
+
+small {
+  color: #999;
+  font-size: smaller;
+}
