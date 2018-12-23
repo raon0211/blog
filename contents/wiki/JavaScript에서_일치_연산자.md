@@ -19,7 +19,7 @@ JavaScript에는 동일성을 검증하기 위해 3가지 방법이 주어져 �
 
 # 엄격 일치 비교 연산자 `===`
 
-`===`는 생긴 것 때문에 "triple equals" 또는 우리말로 "는는는(...)"이라고 일컬어지곤 한다. 엄격 일치 연산이 이루어지는 규칙은 간단하다. ECMAScript [5.1 명세서](http://ecma-international.org/ecma-262/5.1/#sec-11.9.6)를 보면
+`===`는 생긴 것 때문에 "triple equals" 또는 우리말로 "는는는(...)"이라고 일컬어지곤 한다. 엄격 일치 연산이 이루어지는 규칙은 간단하다. ECMAScript [5.1 명세서](https://ecma-international.org/ecma-262/5.1/#sec-11.9.6)를 보면
 
 값 `x`, `y`가 주어져서 `x === y`로 두 값을 비교할 때 그 결괏값은 `true` 또는 `false`이다.
 
@@ -73,7 +73,7 @@ NaN !== NaN // true
 
 # 추상 일치 비교 연산자 `==`
 
-추상 일치 비교 연산자는 `===`에 자동 타입 변환이 들어간 것이다. 생긴 것 때문에 "double equals" 또는 한국어로 "는는"이라고 한다. ECMAScript [5.1 명세서](http://ecma-international.org/ecma-262/5.1/#sec-11.9.3)를 참고하면 다음과 같이 정의되어 있다.
+추상 일치 비교 연산자는 `===`에 자동 타입 변환이 들어간 것이다. 생긴 것 때문에 "double equals" 또는 한국어로 "는는"이라고 한다. ECMAScript [5.1 명세서](https://ecma-international.org/ecma-262/5.1/#sec-11.9.3)를 참고하면 다음과 같이 정의되어 있다.
 
 값 `x`, `y`가 주어져서 `x == y`로 두 값을 비교할 때 그 결괏값은 `true` 또는 `false`이다.
 
