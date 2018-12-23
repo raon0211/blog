@@ -38,7 +38,7 @@ export default class Markdown extends React.PureComponent<Props> {
           '& > p + p': Margins.top.medium,
           '& a': linkCss,
           '& ul, & ol': [Paddings.left.large],
-          '& > p + ul': [Margins.vertical.medium],
+          '& > p + ul, & > p + ol': [Margins.vertical.medium],
           '& ul > li': [
             Margins.vertical.xSmall,
             Typography.text,
@@ -53,6 +53,14 @@ export default class Markdown extends React.PureComponent<Props> {
               listStyleType: 'decimal',
             },
           ],
+          '& p > img': [
+            {
+              maxWidth: '100%',
+              margin: '0 auto',
+              display: 'block',
+              border: '1px solid #f0f0f0',
+            }
+          ]
         }}
         dangerouslySetInnerHTML={{ __html: html }}
       />
