@@ -10,37 +10,23 @@ import ArticleItem from '../components/ArticleItem';
 import { Helmet } from 'react-helmet';
 
 interface Props {
-  articles: Article[];
+  title: string;
+  articles: { [key: string]: Article[] };
+  count: number;
 }
 
-function Articles({ articles }: Props) {
-  const articlesByFirstLetter = articles
-    .map(article => [article.id, article] as [string, Article])
-    .sort(([xTitle], [yTitle]) => xTitle.localeCompare(yTitle))
-    .reduce<{ [firstLetter: string]: Article[] }>(
-      (sortingArticles, [title, article]) => {
-        const firstLetter = disassemble(title)[0];
-
-        if (sortingArticles[firstLetter] === undefined) {
-          sortingArticles[firstLetter] = [article];
-        } else {
-          sortingArticles[firstLetter].push(article);
-        }
-
-        return sortingArticles;
-      },
-      {}
-    );
+function Articles({ title, articles, count }: Props) {
+  const sortedArticles = articles;
 
   return (
     <Section>
       <Helmet>
-        <title>글뭉치</title>
+        <title>{title}</title>
       </Helmet>
-      <Title>글뭉치</Title>
-      <Paragraph>현재 {articles.length}개의 글이 있습니다.</Paragraph>
-      {Object.keys(articlesByFirstLetter).map(firstLetter => {
-        const articles = articlesByFirstLetter[firstLetter];
+      <Title>{title}</Title>
+      <Paragraph>현재 {count}개의 글이 있습니다.</Paragraph>
+      {Object.keys(sortedArticles).map(firstLetter => {
+        const articles = sortedArticles[firstLetter];
 
         return (
           <React.Fragment key={firstLetter}>
@@ -60,9 +46,11 @@ function Articles({ articles }: Props) {
 }
 
 interface RouteData {
-  content: Article[];
+  title: string;
+  content: { [key: string]: Article[] };
+  count: number;
 }
 
-export default withRouteData(({ content }: RouteData) => {
-  return <Articles articles={content} />;
+export default withRouteData(({ title, content, count }: RouteData) => {
+  return <Articles title={title} articles={content} count={count} />;
 });

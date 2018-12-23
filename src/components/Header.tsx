@@ -33,6 +33,7 @@ export default function Header() {
         Jin
       </a>
       <nav>
+        <HeaderLink href="/blog">날적이</HeaderLink>
         <HeaderLink href="/articles">글뭉치</HeaderLink>
         <HeaderLink href="/about">소개</HeaderLink>
       </nav>
