@@ -112,7 +112,7 @@ function getWikiArticles(markdowns) {
 
 function processMarkdown(markdown, { id, linkMap }) {
   const { content, data } = grayMatter(markdown);
-  const html = marked(linkContent(content, linkMap));
+  const html = linkContent(marked(content), id, linkMap);
 
   return {
     html,
@@ -149,11 +149,15 @@ function extractKeywords(data) {
   return data.keywords.split(',').map(x => x.trim());
 }
 
-function linkContent(content, linkMap) {
+function linkContent(content, id, linkMap) {
   return Object.keys(linkMap).reduce((linkingContent, keyword) => {
+    if (id === linkMap[keyword]) {
+      return linkingContent;
+    }
+
     return linkingContent.replace(
-      new RegExp(`\\s${keyword}`, 'g'),
-      ` [${keyword}](${getArticlePath(linkMap[keyword])})`
+      new RegExp(`(\\s|>)${keyword}`, 'g'),
+      `$1<a href="${getArticlePath(linkMap[keyword])}">${keyword}</a>`
     );
   }, content);
 }
