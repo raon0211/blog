@@ -82,14 +82,14 @@ const letterSpacing = -0.3;
 
 const titleLineHeight = 1.5;
 
-const serif = 'Noto Serif, serif;';
+const serif = 'Noto Serif';
 
 export const Typography = {
   text: {
     fontFamily: serif,
     fontSize: Sizes.regular,
     color: Colors.text,
-    fontWeight: 400,
+    fontWeight: 500,
     lineHeight,
     letterSpacing,
   },
