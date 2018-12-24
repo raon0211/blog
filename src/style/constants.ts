@@ -14,7 +14,7 @@ export const Sizes = {
 };
 
 export const Colors = {
-  text: '#333',
+  text: '#444',
   textSecondary: '#666',
   accent: '#3188ff',
 };
@@ -82,8 +82,11 @@ const letterSpacing = -0.3;
 
 const titleLineHeight = 1.5;
 
+const serif = 'Noto Serif, serif;';
+
 export const Typography = {
   text: {
+    fontFamily: serif,
     fontSize: Sizes.regular,
     color: Colors.text,
     fontWeight: 400,
@@ -91,6 +94,7 @@ export const Typography = {
     letterSpacing,
   },
   secondaryText: {
+    fontFamily: serif,
     fontSize: Sizes.regular,
     color: Colors.textSecondary,
     fontWeight: 400,
