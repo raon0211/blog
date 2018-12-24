@@ -4,7 +4,7 @@ import css from '@emotion/css';
 
 export const Sizes = {
   none: 0,
-  xSmall: '0.25rem',
+  xSmall: '0.3rem',
   small: '0.75rem',
   regular: '1rem',
   medium: '1.25rem',
@@ -77,19 +77,25 @@ export const Flex = {
   },
 };
 
+const lineHeight = 1.75;
+const letterSpacing = -0.3;
+
+const titleLineHeight = 1.5;
+
 export const Typography = {
   text: {
     fontSize: Sizes.regular,
     color: Colors.text,
     fontWeight: 400,
-    lineHeight: 1.75,
-    letterSpacing: -0.3,
+    lineHeight,
+    letterSpacing,
   },
   secondaryText: {
     fontSize: Sizes.regular,
     color: Colors.textSecondary,
     fontWeight: 400,
-    lineHeight: 1.6,
+    lineHeight,
+    letterSpacing,
   },
   link: {
     color: Colors.text,
@@ -99,16 +105,22 @@ export const Typography = {
     fontSize: Sizes.large,
     color: Colors.text,
     fontWeight: 700,
+    lineHeight: titleLineHeight,
+    letterSpacing,
   },
   h1: {
     fontSize: Sizes.medium,
     color: Colors.text,
     fontWeight: 700,
+    lineHeight: titleLineHeight,
+    letterSpacing,
   },
   h2: {
     fontSize: '1.1rem',
     color: Colors.text,
     fontWeight: 700,
+    lineHeight: titleLineHeight,
+    letterSpacing,
   },
   oneLine: {
     whiteSpace: 'nowrap',

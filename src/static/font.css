@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Noto Serif CJK KR ExtraLight'),
+    local('Source Han Serif K ExtraLight'), local('Source Han Serif ExtraLight'),
+    local('Noto Serif CJK ExtraLight'),
+    url('https://static.sojin.io/fonts/NotoSerif-ExtraLight.woff')
+      format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-ExtraLight.woff2')
+      format('woff2');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Serif CJK KR Light'), local('Source Han Serif K Light'),
+    local('Source Han Serif Light'), local('Noto Serif CJK Light'),
+    url('https://static.sojin.io/fonts/NotoSerif-Light.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Serif CJK KR'), local('Source Han Serif K'),
+    local('Source Han Serif'), local('Noto Serif CJK'),
+    url('https://static.sojin.io/fonts/NotoSerif-Regular.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Serif CJK KR Medium'), local('Source Han Serif K Medium'),
+    local('Source Han Serif Medium'), local('Noto Serif CJK Medium'),
+    url('https://static.sojin.io/fonts/NotoSerif-Medium.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Noto Serif CJK KR SemiBold'), local('Source Han Serif K SemiBold'),
+    local('Source Han Serif SemiBold'), local('Noto Serif CJK SemiBold'),
+    url('https://static.sojin.io/fonts/NotoSerif-SemiBold.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-SemiBold.woff2')
+      format('woff2');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Serif CJK KR Bold'), local('Source Han Serif K Bold'),
+    local('Source Han Serif Bold'), local('Noto Serif CJK Bold'),
+    url('https://static.sojin.io/fonts/NotoSerif-Bold.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Noto Serif CJK KR Black'), local('Source Han Serif K Black'),
+    local('Source Han Serif Black'), local('Noto Serif CJK Black'),
+    url('https://static.sojin.io/fonts/NotoSerif-Black.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSerif-Black.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Noto Sans CJK KR Thin'), local('Source Han Sans K Thin'),
+    local('Source Han Sans Thin'), local('Noto Sans CJK Thin'),
+    url('https://static.sojin.io/fonts/NotoSans-Thin.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-Thin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Noto Sans CJK KR ExtraLight'),
+    local('Source Han Sans K ExtraLight'), local('Source Han Sans ExtraLight'),
+    local('Noto Sans CJK ExtraLight'),
+    url('https://static.sojin.io/fonts/NotoSans-ExtraLight.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-ExtraLight.woff2')
+      format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Sans CJK KR Light'), local('Source Han Sans K Light'),
+    local('Source Han Sans Light'), local('Noto Sans CJK Light'),
+    url('https://static.sojin.io/fonts/NotoSans-Light.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans CJK KR'), local('Source Han Sans K'),
+    local('Source Han Sans'), local('Noto Sans CJK'),
+    url('https://static.sojin.io/fonts/NotoSans-Regular.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Sans CJK KR Medium'), local('Source Han Sans K Medium'),
+    local('Source Han Sans Medium'), local('Noto Sans CJK Medium'),
+    url('https://static.sojin.io/fonts/NotoSans-Medium.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans CJK KR Bold'), local('Source Han Sans K Bold'),
+    local('Source Han Sans Bold'), local('Noto Sans CJK Bold'),
+    url('https://static.sojin.io/fonts/NotoSans-Bold.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Noto Sans CJK KR Black'), local('Source Han Sans K Black'),
+    local('Source Han Sans Black'), local('Noto Sans CJK Black'),
+    url('https://static.sojin.io/fonts/NotoSans-Black.woff') format('woff'),
+    url('https://static.sojin.io/fonts/NotoSans-Black.woff2') format('woff2');
+}

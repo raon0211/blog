@@ -18,7 +18,8 @@ export default function ArticleItem({ article, shouldShowDate = true }: Props) {
       <Link
         href={`/article/${article.id}`}
         css={[
-          Paddings.vertical.small,
+          Paddings.vertical.xSmall,
+          Margins.vertical.xSmall,
           Typography.oneLine as any,
           Typography.hideWithEllipsis,
         ]}

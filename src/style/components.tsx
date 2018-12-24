@@ -23,7 +23,7 @@ export function Title({ className, children }: Props) {
 export const headingCss = [
   Margins.top.xxLarge,
   Margins.bottom.medium,
-  Paddings.bottom.small,
+  Paddings.bottom.xSmall,
   Typography.h1,
   Borders.bottomIndented,
 ];
