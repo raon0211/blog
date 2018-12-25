@@ -53,3 +53,9 @@ small {
   color: #999;
   font-size: smaller;
 }
+
+.katex {
+  font: 1.05em KaTeX_Main, Times New Roman, serif;
+  line-height: 1.2;
+  font-weight: inherit;
+}

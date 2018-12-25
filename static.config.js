@@ -8,6 +8,7 @@ import * as wikiArticleMarkdowns from './contents/wiki/*.md';
 import * as blogArticleMarkdowns from './contents/blog/*.md';
 import { disassemble } from 'hangul-js';
 import { format } from 'date-fns';
+import * as katex from 'katex';
 
 const siteRoot = '/';
 const wikiLinkMap = createLinkMap(wikiArticleMarkdowns);
@@ -109,6 +110,15 @@ function getRoutes() {
   ];
 }
 
+function getMapWithItemAdded(map, { key, item }) {
+  const list = map[key] !== undefined ? map[key] : [];
+
+  return {
+    ...map,
+    [key]: [...list, item],
+  };
+}
+
 function createFirstCharToArticleMap(articles) {
   return articles
     .map(article => [article.id, article])
@@ -116,13 +126,10 @@ function createFirstCharToArticleMap(articles) {
     .reduce((sortingArticles, [title, article]) => {
       const firstLetter = disassemble(title)[0];
 
-      if (sortingArticles[firstLetter] === undefined) {
-        sortingArticles[firstLetter] = [article];
-      } else {
-        sortingArticles[firstLetter].push(article);
-      }
-
-      return sortingArticles;
+      return getMapWithItemAdded(sortingArticles, {
+        key: firstLetter,
+        item: article,
+      });
     }, {});
 }
 
@@ -130,15 +137,10 @@ function createDateToArticleMap(articles) {
   return articles
     .sort((x, y) => y.date - x.date)
     .reduce((sortingArticles, article) => {
-      const key = format(article.date, 'YYYY. M.');
-
-      if (sortingArticles[key] === undefined) {
-        sortingArticles[key] = [article];
-      } else {
-        sortingArticles[key].push(article);
-      }
-
-      return sortingArticles;
+      return getMapWithItemAdded(sortingArticles, {
+        key: format(article.date, 'YYYY. M.'),
+        item: article,
+      });
     }, {});
 }
 
@@ -168,7 +170,7 @@ function getArticleRoutes(articles) {
 
 function processMarkdown(markdown, { id, linkMap }) {
   const { content, data } = grayMatter(markdown);
-  const html = linkContent(marked(content), id, linkMap);
+  const html = linkContent(marked(processFormulas(content)), id, linkMap);
 
   return {
     html,
@@ -177,6 +179,27 @@ function processMarkdown(markdown, { id, linkMap }) {
     ...data,
     date: new Date(data.date),
   };
+}
+
+function convertInlineFormula(content) {
+  return content.replace(/\$(.+?)\$/g, (_, p1) => katex.renderToString(p1));
+}
+
+function convertDisplayFormula(content) {
+  return content.replace(/\$\$((.|\r|\n)+?)\$\$/g, (_, p1) =>
+    katex.renderToString(p1, {
+      displayMode: true,
+    })
+  );
+}
+
+function chain(...fns) {
+  return input =>
+    fns.reduce((prevOutput, currentFn) => currentFn(prevOutput), input);
+}
+
+function processFormulas(content) {
+  return chain(convertDisplayFormula, convertInlineFormula)(content);
 }
 
 function createLinkMap(markdowns) {
