@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { Article } from '../models/Article';
 
 interface Props {
-  article: { id: string; date: Date; };
+  article: { id: string; title: string; date: Date };
   shouldShowDate?: boolean;
 }
 
@@ -24,7 +24,7 @@ export default function ArticleItem({ article, shouldShowDate = true }: Props) {
           Typography.hideWithEllipsis,
         ]}
       >
-        {article.id}
+        {article.title}
       </Link>{' '}
       {shouldShowDate && (
         <span

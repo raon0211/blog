@@ -74,9 +74,10 @@ function getRoutes() {
         }),
         recentArticles: [...blogArticles, ...wikiArticles]
           .sort((x, y) => y.date - x.date)
-          .map(article => ({
-            id: article.id,
-            date: article.date,
+          .map(({ id, date, title }) => ({
+            id,
+            date,
+            title,
           }))
           .slice(0, 20),
       }),
@@ -178,7 +179,8 @@ function processMarkdown(markdown, { id, linkMap }) {
 
   return {
     html,
-    id: decamelize(id),
+    id,
+    title: decamelize(id),
     markdown,
     ...data,
     date: new Date(data.date),
