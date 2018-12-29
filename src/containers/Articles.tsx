@@ -11,7 +11,12 @@ import { Helmet } from 'react-helmet';
 
 interface Props {
   title: string;
-  articles: { [key: string]: Article[] };
+  articles: {
+    [key: string]: Array<{
+      id: string;
+      date: Date;
+    }>;
+  };
   count: number;
 }
 
@@ -47,7 +52,12 @@ function Articles({ title, articles, count }: Props) {
 
 interface RouteData {
   title: string;
-  content: { [key: string]: Article[] };
+  content: {
+    [key: string]: Array<{
+      id: string;
+      date: Date;
+    }>;
+  };
   count: number;
 }
 

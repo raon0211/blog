@@ -74,6 +74,10 @@ function getRoutes() {
         }),
         recentArticles: [...blogArticles, ...wikiArticles]
           .sort((x, y) => y.date - x.date)
+          .map(article => ({
+            id: article.id,
+            date: article.date,
+          }))
           .slice(0, 20),
       }),
     },

@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { Article } from '../models/Article';
 
 interface Props {
-  article: Article;
+  article: { id: string; date: Date; };
   shouldShowDate?: boolean;
 }
 
