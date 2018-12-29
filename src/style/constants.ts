@@ -16,7 +16,7 @@ export const Sizes = {
 export const Colors = {
   text: '#444',
   textSecondary: '#666',
-  accent: '#3188ff',
+  accent: '#1a75d5',
 };
 
 export const Margins = {

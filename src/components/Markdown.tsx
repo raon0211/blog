@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Margins, Typography, Paddings } from '../style/constants';
+import { Margins, Typography, Paddings, Colors } from '../style/constants';
 import {
   headingCss,
   paragraphCss,
@@ -7,6 +7,7 @@ import {
   subheadingCss,
 } from '../style/components';
 import Prism from 'prismjs';
+import css from '@emotion/css';
 
 interface Props {
   className?: string;
@@ -36,7 +37,20 @@ export default class Markdown extends React.PureComponent<Props> {
           ],
           '& p': paragraphCss,
           '& > p + p': Margins.top.medium,
-          '& a': linkCss,
+          '& a': css`
+            font-weight: 700;
+            color: ${Colors.accent};
+            text-decoration: none;
+            &::after {
+              content: ' ';
+              display: inline-block;
+              width: 10px;
+              height: 9px;
+              background: url(https://static.sojin.io/icons/link.svg);
+              margin: 0 3px;
+            }
+          `,
+
           '& ul, & ol': [Paddings.left.large],
           '& > p + ul, & > p + ol': [Margins.vertical.medium],
           '& ul > li': [
