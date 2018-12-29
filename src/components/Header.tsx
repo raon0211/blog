@@ -7,7 +7,7 @@ import {
   Margins,
   Borders,
 } from '../style/constants';
-import { Heading, headingCss } from '../style/components';
+import { Heading, headingCss, Link } from '../style/components';
 
 export default function Header() {
   return (
@@ -20,7 +20,7 @@ export default function Header() {
         Flex.alignItemsToCenter,
       ]}
     >
-      <a
+      <Link
         href="/"
         css={[
           headingCss,
@@ -31,7 +31,7 @@ export default function Header() {
         ]}
       >
         Jin
-      </a>
+      </Link>
       <nav>
         <HeaderLink href="/blog">끄적끄적</HeaderLink>
         <HeaderLink href="/articles">글뭉치</HeaderLink>
@@ -48,7 +48,7 @@ interface HeaderLinkProps {
 
 function HeaderLink({ href, children }: HeaderLinkProps) {
   return (
-    <a
+    <Link
       href={href}
       css={[
         Typography.text,
@@ -59,6 +59,6 @@ function HeaderLink({ href, children }: HeaderLinkProps) {
       ]}
     >
       {children}
-    </a>
+    </Link>
   );
 }

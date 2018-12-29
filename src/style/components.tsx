@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Typography, Margins, Paddings, Borders } from './constants';
+import { Link as RouterLink } from '@reach/router';
 
 interface Props {
   className?: string;
@@ -71,6 +72,6 @@ interface LinkProps {
   href: string;
 }
 
-export function Link(props: Props & LinkProps) {
-  return <a css={linkCss} {...props} />;
+export function Link({ href, ...props }: Props & LinkProps) {
+  return <RouterLink to={href} css={linkCss} {...props} />;
 }
