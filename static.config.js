@@ -43,7 +43,7 @@ function Document({ Html, Head, Body, children, renderMeta }) {
         />
 
         <link
-          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Sans+JP|Noto+Serif+JP|Noto+Serif+KR"
           rel="stylesheet"
         />
 

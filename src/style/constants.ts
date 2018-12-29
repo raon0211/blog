@@ -82,7 +82,7 @@ const letterSpacing = -0.3;
 
 const titleLineHeight = 1.5;
 
-const serif = 'Noto Serif';
+const serif = `'Noto Serif KR', 'Noto Serif JP', serif`;
 
 export const Typography = {
   text: {
