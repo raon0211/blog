@@ -8,4 +8,6 @@ declare module '@reach/router' {
   }
 
   export class Link extends React.Component<LinkProps> {}
+
+  export function navigate(path: string): void;
 }

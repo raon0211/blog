@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { withRouteData } from 'react-static';
+import { withRouteData, prefetch } from 'react-static';
 import { Heading, Title } from '../style/components';
 import Section from '../components/Section';
 import Markdown from '../components/Markdown';
@@ -11,8 +11,14 @@ interface Props {
   article: ArticleEntity;
 }
 
-function Article({ article }: Props) {
-  const { id, category, html, markdown } = article;
+class Article extends React.PureComponent<Props> {
+  public componentDidMount() {
+    Promise.all(this.props.article.externalLinks.map(prefetch));
+  }
+
+  public render() {
+    const { article } = this.props;
+    const { id, title, category, html, markdown } = article;
 
     return (
       <Section>
@@ -25,6 +31,7 @@ function Article({ article }: Props) {
         <Markdown html={html} />
       </Section>
     );
+  }
 }
 
 interface RouteData {

@@ -4,7 +4,7 @@ import { Heading, Title, Subheading, Paragraph } from '../style/components';
 import Section from '../components/Section';
 import Markdown from '../components/Markdown';
 import { Margins, Typography } from '../style/constants';
-import { Article } from '../models/Article';
+import { ArticleEntity } from '../models/Article';
 import { disassemble } from 'hangul-js';
 import ArticleItem from '../components/ArticleItem';
 import { Helmet } from 'react-helmet';
@@ -14,6 +14,7 @@ interface Props {
   articles: {
     [key: string]: Array<{
       id: string;
+      title: string;
       date: Date;
     }>;
   };
@@ -55,6 +56,7 @@ interface RouteData {
   content: {
     [key: string]: Array<{
       id: string;
+      title: string;
       date: Date;
     }>;
   };

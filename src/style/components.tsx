@@ -65,7 +65,7 @@ export function Paragraph({ className, children }: Props) {
   );
 }
 
-export const linkCss = [Typography.link];
+export const linkCss = [Typography.internalLink];
 
 interface LinkProps {
   className?: string;

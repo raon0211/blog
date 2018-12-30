@@ -7,7 +7,7 @@ import {
   subheadingCss,
 } from '../style/components';
 import Prism from 'prismjs';
-import css from '@emotion/css';
+import { navigate } from '@reach/router';
 
 interface Props {
   className?: string;
@@ -15,8 +15,12 @@ interface Props {
 }
 
 export default class Markdown extends React.PureComponent<Props> {
+  public articleRef = React.createRef<HTMLDivElement>();
+
   public componentDidMount() {
     Prism.highlightAll();
+
+    this.enableInternalNavigationInMarkdown();
   }
 
   public render() {
@@ -24,6 +28,7 @@ export default class Markdown extends React.PureComponent<Props> {
 
     return (
       <article
+        ref={this.articleRef}
         className={className}
         css={{
           '& h1': headingCss,
@@ -37,20 +42,6 @@ export default class Markdown extends React.PureComponent<Props> {
           ],
           '& p': paragraphCss,
           '& > p + p': Margins.top.medium,
-          '& a': css`
-            font-weight: 700;
-            color: ${Colors.accent};
-            text-decoration: none;
-            &::after {
-              content: ' ';
-              display: inline-block;
-              width: 10px;
-              height: 9px;
-              background: url(https://static.sojin.io/icons/link.svg);
-              margin: 0 3px;
-            }
-          `,
-
           '& ul, & ol': [Paddings.left.large],
           '& > p + ul, & > p + ol': [Margins.vertical.medium],
           '& ul > li': [
@@ -82,9 +73,32 @@ export default class Markdown extends React.PureComponent<Props> {
               borderLeft: '3px solid #e0e0e0',
             },
           ],
+          '& a[href^=\\/]': Typography.internalLink,
+          '& a:not([href^=\\/])': Typography.externalLink,
         }}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
   }
+
+  private enableInternalNavigationInMarkdown = () => {
+    const articleEl = this.articleRef.current;
+
+    if (articleEl === null) {
+      return;
+    }
+
+    articleEl.querySelectorAll('a.internal, a[href^=\\/]').forEach(anchor => {
+      anchor.addEventListener('click', this.handleInternalAnchorClick);
+    });
+  };
+
+  private handleInternalAnchorClick = (event: Event) => {
+    event.preventDefault();
+
+    const anchorEl = event.target! as HTMLAnchorElement;
+    const link = anchorEl.getAttribute('href')!;
+
+    navigate(link);
+  };
 }

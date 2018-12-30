@@ -68,7 +68,7 @@ function getRoutes() {
       path: '/',
       component: 'src/containers/Index',
       getData: () => ({
-        content: processMarkdown(indexMarkdown, {
+        content: createArticle(indexMarkdown, {
           id: 'Jin',
           linkMap: wikiLinkMap,
         }),
@@ -86,7 +86,7 @@ function getRoutes() {
       path: '/about',
       component: 'src/containers/Article',
       getData: () => ({
-        content: processMarkdown(aboutMarkdown, {
+        content: createArticle(aboutMarkdown, {
           id: '소개',
           linkMap: wikiLinkMap,
         }),
@@ -156,7 +156,7 @@ function getArticlePath(articleId) {
 function getArticles(markdowns) {
   return Object.keys(markdowns).map(id => {
     const articleMarkdown = markdowns[id];
-    return processMarkdown(articleMarkdown, {
+    return createArticle(articleMarkdown, {
       id: id,
       linkMap: wikiLinkMap,
     });
@@ -168,14 +168,20 @@ function getArticleRoutes(articles) {
     return {
       path: getArticlePath(article.id),
       component: 'src/containers/Article',
-      getData: () => ({ content: article }),
+      getData: () => ({
+        content: article,
+      }),
     };
   });
 }
 
-function processMarkdown(markdown, { id, linkMap }) {
+function createArticle(markdown, { id, linkMap }) {
   const { content, data } = grayMatter(markdown);
-  const html = linkContent(marked(processFormulas(content)), id, linkMap);
+  const { html, linkedArticleIds } = linkContent(
+    marked(processFormulas(content)),
+    id,
+    linkMap
+  );
 
   return {
     html,
@@ -184,6 +190,7 @@ function processMarkdown(markdown, { id, linkMap }) {
     markdown,
     ...data,
     date: new Date(data.date),
+    externalLinks: linkedArticleIds.map(getArticlePath),
   };
 }
 
@@ -213,7 +220,7 @@ function createLinkMap(markdowns) {
     .map(articleId => {
       const markdown = markdowns[articleId];
       const { data } = grayMatter(markdown);
-      const keywords = [articleId, ...extractKeywords(data)];
+      const keywords = [decamelize(articleId), ...extractKeywords(data)];
 
       return [articleId, keywords];
     })
@@ -234,17 +241,25 @@ function extractKeywords(data) {
   return data.keywords.split(',').map(x => x.trim());
 }
 
-function linkContent(content, id, linkMap) {
-  return Object.keys(linkMap).reduce((linkingContent, keyword) => {
-    if (id === linkMap[keyword]) {
-      return linkingContent;
-    }
+function linkContent(html, id, linkMap) {
+  return Object.keys(linkMap).reduce(
+    ({ html, linkedArticleIds }, keyword) => {
+      const keywordRegex = new RegExp(`(\\s|>)${keyword}`, 'g');
 
-    return linkingContent.replace(
-      new RegExp(`(\\s|>)${keyword}`, 'g'),
-      `$1<a href="${getArticlePath(linkMap[keyword])}">${keyword}</a>`
-    );
-  }, content);
+      if (id === linkMap[keyword] || !keywordRegex.test(html)) {
+        return { html, linkedArticleIds };
+      }
+
+      return {
+        html: html.replace(
+          keywordRegex,
+          `$1<a href="${getArticlePath(linkMap[keyword])}">${keyword}</a>`
+        ),
+        linkedArticleIds: [...linkedArticleIds, keyword],
+      };
+    },
+    { html, linkedArticleIds: [] }
+  );
 }
 
 function decamelize(str) {

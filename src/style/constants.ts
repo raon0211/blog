@@ -101,7 +101,20 @@ export const Typography = {
     lineHeight,
     letterSpacing,
   },
-  link: {
+  externalLink: css`
+    font-weight: 700;
+    color: ${Colors.accent};
+    text-decoration: none;
+    &::after {
+      content: ' ';
+      display: inline-block;
+      width: 10px;
+      height: 9px;
+      background: url(https://static.sojin.io/icons/link.svg);
+      margin: 0 3px;
+    }
+  `,
+  internalLink: {
     color: Colors.text,
     textDecoration: 'underline',
   },
