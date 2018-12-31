@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'Noto Sans KR', 'Noto Sans JP', sans-serif;
 }
@@ -10,11 +14,6 @@ p {
   margin: 0;
 }
 
-#root {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 @media (min-width: 800px) {
   :root {
     font-size: 19px;
@@ -22,7 +21,7 @@ p {
 }
 
 article > pre[class*='language-'] {
-  margin: 1.25rem 0;
+  margin: 2.25rem 0;
   font-size: 0.9rem;
 }
 
