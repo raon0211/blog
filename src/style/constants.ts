@@ -5,18 +5,21 @@ import css from '@emotion/css';
 export const Sizes = {
   none: 0,
   xSmall: '0.3rem',
+  mediumSmall: '0.5rem',
   small: '0.75rem',
   regular: '1rem',
   medium: '1.25rem',
   large: '1.5rem',
   xLarge: '2rem',
-  xxLarge: '3.5rem',
+  xxLarge: '3.75rem',
 };
 
 export const Colors = {
   text: '#444',
   textSecondary: '#666',
-  accent: '#1a75d5',
+  accentDark: '#1a75d5',
+  accentMedium: '#1f7fe4',
+  white: '#fff',
 };
 
 export const Margins = {
@@ -82,16 +85,23 @@ const letterSpacing = -0.3;
 
 const titleLineHeight = 1.5;
 
+const sans = `'Noto Sans KR', 'Noto Sans JP', sans-serif`;
 const serif = `'Noto Serif KR', 'Noto Serif JP', serif`;
 
+const text = {
+  fontFamily: serif,
+  fontSize: Sizes.regular,
+  color: Colors.text,
+  fontWeight: 500,
+  lineHeight,
+  letterSpacing,
+};
+
 export const Typography = {
-  text: {
-    fontFamily: serif,
-    fontSize: Sizes.regular,
-    color: Colors.text,
-    fontWeight: 500,
-    lineHeight,
-    letterSpacing,
+  text,
+  textSans: {
+    ...text,
+    fontFamily: sans,
   },
   secondaryText: {
     fontFamily: serif,
@@ -103,7 +113,7 @@ export const Typography = {
   },
   externalLink: css`
     font-weight: 700;
-    color: ${Colors.accent};
+    color: ${Colors.accentDark};
     text-decoration: none;
     &::after {
       content: ' ';
@@ -119,21 +129,21 @@ export const Typography = {
     textDecoration: 'underline',
   },
   title: {
-    fontSize: Sizes.large,
+    fontSize: Sizes.xLarge,
     color: Colors.text,
     fontWeight: 700,
     lineHeight: titleLineHeight,
     letterSpacing,
   },
   h1: {
-    fontSize: Sizes.medium,
+    fontSize: Sizes.large,
     color: Colors.text,
     fontWeight: 700,
     lineHeight: titleLineHeight,
     letterSpacing,
   },
   h2: {
-    fontSize: '1.1rem',
+    fontSize: Sizes.medium,
     color: Colors.text,
     fontWeight: 700,
     lineHeight: titleLineHeight,
@@ -154,7 +164,7 @@ export const Borders = {
       display: none;
     }
   `,
-  bottomIndented: css`
+  bottom: css`
     position: relative;
     overflow: hidden;
 
@@ -166,5 +176,12 @@ export const Borders = {
       bottom: 0;
       left: 0;
     }
+  `,
+};
+
+export const Containers = {
+  wrap: css`
+    max-width: 1000px;
+    margin: 0 auto;
   `,
 };
