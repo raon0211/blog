@@ -5,5 +5,5 @@ export interface ArticleEntity {
   markdown: string;
   html: string;
   date: Date;
-  linkedArticleIds: string[];
+  externalLinks: string[];
 }

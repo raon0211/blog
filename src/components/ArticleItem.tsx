@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Margins, Flex, Typography, Paddings } from '../style/constants';
 import { Link } from '../style/components';
 import { format } from 'date-fns';
-import { Article } from '../models/Article';
 
 interface Props {
   article: { id: string; title: string; date: Date };

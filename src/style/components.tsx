@@ -26,7 +26,7 @@ export const headingCss = [
   Margins.bottom.medium,
   Paddings.bottom.xSmall,
   Typography.h1,
-  Borders.bottomIndented,
+  Borders.bottom,
 ];
 
 export function Heading({ className, children }: Props) {
