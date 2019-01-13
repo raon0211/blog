@@ -16,23 +16,27 @@ export default function Header() {
     <header>
       <div
         css={[
-          Paddings.vertical.medium,
           Paddings.horizontal.medium,
           Flex.horizontal,
           Flex.spaceBetweenItems,
           Flex.alignItemsToCenter,
           Containers.wrap,
-          { maxWidth: 1080 },
+          { maxWidth: 1080, flexWrap: 'wrap' },
+          Margins.vertical.regular,
         ]}
       >
         <HeaderLink
           href="/"
-          css={{
-            display: 'flex',
-            fontSize: Sizes.regular,
-            alignItems: 'center',
-            lineHeight: 1,
-          }}
+          css={[
+            Margins.vertical.small,
+            Margins.right.medium,
+            {
+              display: 'flex',
+              fontSize: Sizes.regular,
+              alignItems: 'center',
+              lineHeight: 1,
+            },
+          ]}
         >
           <img
             src="https://static.sojin.io/images/leo.png"
@@ -63,7 +67,7 @@ export default function Header() {
             </small>
           </div>
         </HeaderLink>
-        <nav>
+        <nav css={Margins.vertical.small}>
           <HeaderLink href="/blog">끄적끄적</HeaderLink>
           <HeaderLink href="/articles">글뭉치</HeaderLink>
           <HeaderLink href="/about">소개</HeaderLink>
@@ -92,7 +96,7 @@ function HeaderLink({ className, href, children }: HeaderLinkProps) {
           textDecoration: 'none',
           color: Colors.textSecondary,
         },
-        Margins.horizontalList.large,
+        Margins.horizontalList.medium,
       ]}
     >
       {children}

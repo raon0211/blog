@@ -18,7 +18,7 @@ interface Props {
 export const titleCss = [
   Typography.title,
   Margins.top.xxLarge,
-  Margins.bottom.xLarge,
+  Margins.bottom.large,
   css`
     font-weight: 900;
   `,
