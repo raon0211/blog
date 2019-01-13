@@ -1,6 +1,14 @@
 import * as React from 'react';
-import { Typography, Margins, Paddings, Borders } from './constants';
+import {
+  Typography,
+  Margins,
+  Paddings,
+  Borders,
+  Sizes,
+  Colors,
+} from './constants';
 import { Link as RouterLink } from '@reach/router';
+import css from '@emotion/css';
 
 interface Props {
   className?: string;
@@ -11,6 +19,9 @@ export const titleCss = [
   Typography.title,
   Margins.top.xxLarge,
   Margins.bottom.xLarge,
+  css`
+    font-weight: 900;
+  `,
 ];
 
 export function Title({ className, children }: Props) {
@@ -21,10 +32,24 @@ export function Title({ className, children }: Props) {
   );
 }
 
+export const metaCss = [
+  Typography.textSans,
+  { color: Colors.textSecondary },
+  Margins.top.small,
+];
+
+export function Meta({ className, children }: Props) {
+  return (
+    <div className={className} css={metaCss}>
+      {children}
+    </div>
+  );
+}
+
 export const headingCss = [
   Margins.top.xxLarge,
   Margins.bottom.medium,
-  Paddings.bottom.xSmall,
+  Paddings.bottom.small,
   Typography.h1,
   Borders.bottom,
 ];

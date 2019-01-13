@@ -171,7 +171,7 @@ export const Borders = {
     &::after {
       position: absolute;
       content: ' ';
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #f0f0f0;
       width: 100vw;
       bottom: 0;
       left: 0;
@@ -181,7 +181,7 @@ export const Borders = {
 
 export const Containers = {
   wrap: css`
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
   `,
 };

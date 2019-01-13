@@ -21,7 +21,7 @@ p {
 }
 
 article > pre[class*='language-'] {
-  margin: 2.25rem 0;
+  margin: 1.5rem 0;
   font-size: 0.9rem;
 }
 

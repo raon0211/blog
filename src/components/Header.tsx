@@ -13,22 +13,55 @@ import { Heading, headingCss, Link } from '../style/components';
 
 export default function Header() {
   return (
-    <header css={Borders.bottom}>
+    <header>
       <div
         css={[
-          Paddings.vertical.small,
+          Paddings.vertical.medium,
           Paddings.horizontal.medium,
           Flex.horizontal,
           Flex.spaceBetweenItems,
           Flex.alignItemsToCenter,
           Containers.wrap,
+          { maxWidth: 1080 },
         ]}
       >
         <HeaderLink
           href="/"
-          css={{ fontSize: Sizes.medium, color: Colors.text }}
+          css={{
+            display: 'flex',
+            fontSize: Sizes.regular,
+            alignItems: 'center',
+            lineHeight: 1,
+          }}
         >
-          Jin
+          <img
+            src="https://static.sojin.io/images/leo.png"
+            css={{
+              width: '3rem',
+              height: '3rem',
+              borderRadius: '3rem',
+            }}
+          />
+          <div css={Margins.left.small}>
+            <div
+              css={[
+                Margins.bottom.xSmall,
+                {
+                  color: Colors.text,
+                  fontWeight: 700,
+                },
+              ]}
+            >
+              Sojin Park
+            </div>
+            <small
+              css={{
+                color: Colors.textSecondary,
+              }}
+            >
+              Frontend Dev
+            </small>
+          </div>
         </HeaderLink>
         <nav>
           <HeaderLink href="/blog">끄적끄적</HeaderLink>
