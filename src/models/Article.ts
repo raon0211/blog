@@ -4,6 +4,6 @@ export interface ArticleEntity {
   category: string[];
   markdown: string;
   html: string;
-  date: Date;
+  date?: Date;
   externalLinks: string[];
 }

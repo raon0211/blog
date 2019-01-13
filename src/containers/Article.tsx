@@ -1,11 +1,12 @@
 import * as React from 'react';
 import { withRouteData, prefetch } from 'react-static';
-import { Heading, Title } from '../style/components';
+import { Heading, Title, Meta } from '../style/components';
 import Section from '../components/Section';
 import Markdown from '../components/Markdown';
 import { Margins, Typography } from '../style/constants';
 import { ArticleEntity } from '../models/Article';
 import { Helmet } from 'react-helmet';
+import { format } from 'date-fns';
 
 interface Props {
   article: ArticleEntity;
@@ -27,7 +28,13 @@ class Article extends React.PureComponent<Props> {
           <meta property="og:title" content={`${id} - Sojin Park`} />
           <meta property="og:description" content={markdown.slice(0, 50)} />
         </Helmet>
-        <Title>{title}</Title>
+        <Title>
+          {title}
+          {article.date !== undefined ? (
+            <Meta>{format(article.date, 'YYYY. M. D.')}</Meta>
+          ) : null}
+        </Title>
+
         <Markdown html={html} />
       </Section>
     );

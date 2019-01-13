@@ -43,7 +43,7 @@ function Document({ Html, Head, Body, children, renderMeta }) {
         />
 
         <link
-          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Noto+Sans+JP|Noto+Serif+JP|Noto+Serif+KR"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900|Noto+Sans+JP:400,700,900|Noto+Serif+JP:400,700|Noto+Serif+KR:400,700"
           rel="stylesheet"
         />
 
@@ -189,7 +189,7 @@ function createArticle(markdown, { id, linkMap }) {
     title: decamelize(id),
     markdown,
     ...data,
-    date: new Date(data.date),
+    date: data.date ? new Date(data.date) : undefined,
     externalLinks: linkedArticleIds.map(getArticlePath),
   };
 }
