@@ -33,13 +33,9 @@ function Document({ Html, Head, Body, children, renderMeta }) {
 
         <meta content="IE=edge,chrome=1" httpEquiv="X-UA-Compatible" />
 
-        <meta property="og:title" content="Sojin Park" />
-        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sojin.io/" />
-        <meta
-          property="og:description"
-          content="Sojin Park's personal website and blog"
-        />
+        <meta property="og:site_name" content="Sojin Park" />
+        <meta property="og:locale" content="ko" />
 
         <link
           href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900|Noto+Sans+JP:400,700,900|Noto+Serif+JP:400,700|Noto+Serif+KR:400,700"

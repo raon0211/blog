@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { withRouteData, prefetch } from 'react-static';
-import { Heading, Title, Meta } from '../style/components';
-import Section from '../components/Section';
-import Markdown from '../components/Markdown';
-import { Margins, Typography } from '../style/constants';
-import { ArticleEntity } from '../models/Article';
-import { Helmet } from 'react-helmet';
 import { format } from 'date-fns';
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { prefetch, withRouteData } from 'react-static';
+import Markdown from '../components/Markdown';
+import Section from '../components/Section';
+import { ArticleEntity } from '../models/Article';
+import { Meta, Title } from '../style/components';
+import { buildAbsoluteUrl } from '../utils';
 
 interface Props {
   article: ArticleEntity;
@@ -24,9 +24,23 @@ class Article extends React.PureComponent<Props> {
     return (
       <Section>
         <Helmet>
-          <title>{title}</title>
-          <meta property="og:title" content={`${id} - Sojin Park`} />
-          <meta property="og:description" content={markdown.slice(0, 50)} />
+          <title>{title} - Sojin Park</title>
+          <meta property="og:title" content={id} />
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:url"
+            content={buildAbsoluteUrl({ articleId: article.id })}
+          />
+          <meta
+            property="og:description"
+            content={markdown.replace(/^---(.|\n)+?---/g, '').slice(0, 50)}
+          />
+          {article.date !== undefined ? (
+            <meta
+              property="og:updated_time"
+              content={article.date.toString()}
+            />
+          ) : null}
         </Helmet>
         <Title>
           {title}
