@@ -1,14 +1,13 @@
-import * as React from 'react';
-import { Margins, Flex, Typography, Paddings } from '../style/constants';
-import { Link } from '../style/components';
 import { format } from 'date-fns';
+import * as React from 'react';
+import { Link } from '../style/components';
+import { Flex, Margins, Paddings, Typography } from '../style/constants';
 
 interface Props {
-  article: { id: string; title: string; date: Date };
-  shouldShowDate?: boolean;
+  article: { id: string; title: string; date?: Date };
 }
 
-export default function ArticleItem({ article, shouldShowDate = true }: Props) {
+export default function ArticleItem({ article }: Props) {
   return (
     <div
       key={article.id}
@@ -25,7 +24,7 @@ export default function ArticleItem({ article, shouldShowDate = true }: Props) {
       >
         {article.title}
       </Link>{' '}
-      {shouldShowDate && (
+      {article.date !== undefined && (
         <span
           css={[
             Typography.secondaryText,
