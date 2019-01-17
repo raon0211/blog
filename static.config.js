@@ -26,25 +26,14 @@ export default {
 
 function Document({ Html, Head, Body, children, renderMeta }) {
   return (
-    <Html>
+    <Html lang="ko">
       <Head>
-        <meta charSet="utf-8" />
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
         <meta content="IE=edge,chrome=1" httpEquiv="X-UA-Compatible" />
-
-        <meta property="og:url" content="https://sojin.io/" />
-        <meta property="og:site_name" content="Sojin Park" />
-        <meta property="og:locale" content="ko" />
-
         <link
           href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900|Noto+Sans+JP:400,700,900|Noto+Serif+JP:400,700|Noto+Serif+KR:400,700"
           rel="stylesheet"
-        />
-
-        <meta
-          name="google-site-verification"
-          content="Sf9XItb9NNczFyBi_dpjkdiCjN-5B5w1o-fCVtvwvfA"
         />
 
         {renderMeta.styleTags}

@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { withRouteData } from 'react-static';
-import { Heading, Subheading, Link, Title } from '../style/components';
-import { Margins, Typography, Flex } from '../style/constants';
+import { Head, withRouteData } from 'react-static';
+import ArticleItem from '../components/ArticleItem';
 import Markdown from '../components/Markdown';
 import Section from '../components/Section';
-import { format } from 'date-fns';
-import ArticleItem from '../components/ArticleItem';
 import { ArticleEntity } from '../models/Article';
-import { Helmet } from 'react-helmet';
-import Button, { ButtonStyles } from '../style/components/button';
+import { Heading, Link, Title } from '../style/components';
+import { ButtonStyles } from '../style/components/button';
+import { Margins } from '../style/constants';
+
+const siteDescription =
+  '웹 생태계와 함수형 프로그래밍을 사랑하는 개발자의 글 묶음';
 
 interface Props {
   content: ArticleEntity;
@@ -18,9 +19,15 @@ interface Props {
 function Index({ content, recentArticles }: Props) {
   return (
     <>
-      <Helmet>
+      <Head>
+        <meta name="description" content={siteDescription} />
+        <meta property="og:url" content="https://sojin.io/" />
+        <meta property="og:site_name" content="Sojin Park" />
+        <meta property="og:locale" content="ko" />
+        <meta property="og:url" content="https://sojin.io" />
+        <meta property="og:description" content={siteDescription} />
         <title>Sojin Park</title>
-      </Helmet>
+      </Head>
       <Section>
         <Title>반가워요</Title>
         <Markdown html={content.html} />

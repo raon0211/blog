@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
+import unescape from 'lodash/unescape';
 import * as React from 'react';
-import { Helmet } from 'react-helmet';
-import { prefetch, withRouteData } from 'react-static';
+import { Head, prefetch, withRouteData } from 'react-static';
 import Markdown from '../components/Markdown';
 import Section from '../components/Section';
 import { ArticleEntity } from '../models/Article';
@@ -21,9 +21,13 @@ class Article extends React.PureComponent<Props> {
     const { article } = this.props;
     const { id, title, category, html, markdown } = article;
 
+    const pageDescription = unescape(html.replace(/<.+?>/g, '').trim())
+      .replace(/\n/g, '')
+      .slice(0, 200);
+
     return (
       <Section>
-        <Helmet>
+        <Head>
           <title>{title} - Sojin Park</title>
           <meta property="og:title" content={id} />
           <meta property="og:type" content="article" />
@@ -31,17 +35,18 @@ class Article extends React.PureComponent<Props> {
             property="og:url"
             content={buildAbsoluteUrl({ articleId: article.id })}
           />
-          <meta
-            property="og:description"
-            content={markdown.replace(/^---(.|\n)+?---/g, '').slice(0, 50)}
-          />
+          <meta property="og:description" content={pageDescription} />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:title" content={id} />
+          <meta name="twitter:description" content={pageDescription} />
+          <meta name="twitter:creator" content="@chaevit" />
           {article.date !== undefined ? (
             <meta
               property="og:updated_time"
               content={article.date.toString()}
             />
           ) : null}
-        </Helmet>
+        </Head>
         <Title>
           {title}
           {article.date !== undefined ? (
