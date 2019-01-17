@@ -1,14 +1,13 @@
-import path from 'path';
-import marked from 'marked';
+import { format } from 'date-fns';
 import grayMatter from 'gray-matter';
-
+import { disassemble } from 'hangul-js';
+import * as katex from 'katex';
+import marked from 'marked';
+import path from 'path';
 import aboutMarkdown from './contents/about.md';
+import * as blogArticleMarkdowns from './contents/blog/*.md';
 import indexMarkdown from './contents/index.md';
 import * as wikiArticleMarkdowns from './contents/wiki/*.md';
-import * as blogArticleMarkdowns from './contents/blog/*.md';
-import { disassemble } from 'hangul-js';
-import { format } from 'date-fns';
-import * as katex from 'katex';
 
 const siteRoot = '/';
 const wikiLinkMap = createLinkMap(wikiArticleMarkdowns);
@@ -36,7 +35,7 @@ function Document({ Html, Head, Body, children, renderMeta }) {
 
         <meta property="og:title" content="Sojin Park" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sojin.me/" />
+        <meta property="og:url" content="https://sojin.io/" />
         <meta
           property="og:description"
           content="Sojin Park's personal website and blog"
