@@ -3,6 +3,7 @@ import { Root, Routes } from 'react-static';
 import '../static/reset.css';
 import '../static/katex.min.css';
 import '../static/style.css';
+import '../static/syntax-github.css';
 import Header from '../components/Header';
 import { Global } from '@emotion/core';
 import { Margins, Typography, Containers } from '../style/constants';
