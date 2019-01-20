@@ -1,13 +1,9 @@
 import * as React from 'react';
-import { withRouteData } from 'react-static';
-import { Heading, Title, Subheading, Paragraph } from '../style/components';
-import Section from '../components/Section';
-import Markdown from '../components/Markdown';
-import { Margins, Typography } from '../style/constants';
-import { ArticleEntity } from '../models/Article';
-import { disassemble } from 'hangul-js';
-import ArticleItem from '../components/ArticleItem';
 import { Helmet } from 'react-helmet';
+import { withRouteData } from 'react-static';
+import ArticleItem from '../components/ArticleItem';
+import Section from '../components/Section';
+import { Heading, Paragraph, Title } from '../style/components';
 
 interface Props {
   title: string;
@@ -38,11 +34,7 @@ function Articles({ title, articles, count }: Props) {
           <React.Fragment key={firstLetter}>
             <Heading>{firstLetter}</Heading>
             {articles.map(article => (
-              <ArticleItem
-                key={article.id}
-                article={article}
-                shouldShowDate={false}
-              />
+              <ArticleItem key={article.id} article={article} />
             ))}
           </React.Fragment>
         );
