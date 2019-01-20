@@ -65,6 +65,22 @@ export const Paddings = {
     Sizes,
     copyMapper(['paddingLeft', 'paddingRight'])
   ),
+  horizontalList: makeStyleFromSizes(
+    Sizes,
+    size => css`
+      & + & {
+        padding-left: ${size};
+      }
+    `
+  ),
+  verticalList: makeStyleFromSizes(
+    Sizes,
+    size => css`
+      & + & {
+        padding-top: ${size};
+      }
+    `
+  ),
 };
 
 export const Flex = {
@@ -161,6 +177,7 @@ export const Typography = {
   oneLine: {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
+    letterSpacing,
   },
   hideWithEllipsis: {
     textOverflow: 'ellipsis',

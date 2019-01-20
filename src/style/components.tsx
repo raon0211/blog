@@ -1,14 +1,7 @@
-import * as React from 'react';
-import {
-  Typography,
-  Margins,
-  Paddings,
-  Borders,
-  Sizes,
-  Colors,
-} from './constants';
-import { Link as RouterLink } from '@reach/router';
 import css from '@emotion/css';
+import { Link as RouterLink } from '@reach/router';
+import * as React from 'react';
+import { Borders, Colors, Margins, Paddings, Typography } from './constants';
 
 interface Props {
   className?: string;
@@ -35,7 +28,8 @@ export function Title({ className, children }: Props) {
 export const metaCss = [
   Typography.textSans,
   { color: Colors.textSecondary },
-  Margins.top.small,
+  Paddings.vertical.small,
+  Paddings.verticalList.none,
 ];
 
 export function Meta({ className, children }: Props) {
