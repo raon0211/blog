@@ -32,7 +32,7 @@ function Document({ Html, Head, Body, children, renderMeta }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta content="IE=edge,chrome=1" httpEquiv="X-UA-Compatible" />
         <link
-          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700,900|Noto+Sans+JP:400,700,900|Noto+Serif+JP:400,700|Noto+Serif+KR:400,700"
+          href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700,900|Noto+Sans+JP:400,500,700,900|Noto+Serif+JP:400,700|Noto+Serif+KR:400,700"
           rel="stylesheet"
         />
 
@@ -58,8 +58,9 @@ function getRoutes() {
         }),
         recentArticles: [...blogArticles, ...wikiArticles]
           .sort((x, y) => y.date - x.date)
-          .map(({ id, date, title }) => ({
+          .map(({ id, summary, date, title }) => ({
             id,
+            summary,
             date,
             title,
           }))
@@ -171,6 +172,7 @@ function createArticle(markdown, { id, linkMap }) {
     html,
     id,
     title: decamelize(id),
+    summary: data.summary,
     markdown,
     ...data,
     date: data.date ? new Date(data.date) : undefined,

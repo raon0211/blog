@@ -1,3 +1,4 @@
+import { SerializedStyles } from '@emotion/css';
 import { mapValues } from 'lodash';
 
 type CopiedStyle<T extends string> = { [styleKey in T]: number };
@@ -11,7 +12,9 @@ export function makeStyleFromSizes<
   T extends string
 >(
   sizes: S,
-  sizeMapper: (s: string | number) => string | number | CopiedStyle<T>
+  sizeMapper: (
+    s: string | number
+  ) => string | number | CopiedStyle<T> | SerializedStyles
 ): MappedStyle<S, T> {
   return mapValues(sizes, size => {
     return sizeMapper(size);

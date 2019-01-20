@@ -1,6 +1,7 @@
 ---
 keywords: infer, 조건 타입
 date: 2019-01-08T17:00:00+09:00
+summary: TypeScript 2.8부터 추가된 강력한 조건 타입에 대해 자세히 알아보자
 ---
 
 [조건 타입(Conditional types)](https://github.com/Microsoft/TypeScript/pull/21316)은 TypeScript 2.8부터 추가된 강력한 기능 중 하나이다. TypeScript 프로젝트의 주요 기여자 [Ryan Cavanaugh](https://twitter.com/SeaRyanC/status/1029846761718702081)의 트윗을 간단하게 번역하자면

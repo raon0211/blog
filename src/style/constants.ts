@@ -1,6 +1,5 @@
-import { mapValues } from 'lodash';
-import { makeStyleFromSizes, copyMapper } from './helpers';
 import css from '@emotion/css';
+import { copyMapper, makeStyleFromSizes } from './helpers';
 
 export const Sizes = {
   none: 0,
@@ -37,15 +36,19 @@ export const Margins = {
   ),
   horizontalList: makeStyleFromSizes(
     Sizes,
-    size => `& + & {
-    margin-left: ${size};
-  }`
+    size => css`
+      & + & {
+        margin-left: ${size};
+      }
+    `
   ),
   verticalList: makeStyleFromSizes(
     Sizes,
-    size => `& + & {
-    margin-top: ${size};
-  }`
+    size => css`
+      & + & {
+        margin-top: ${size};
+      }
+    `
   ),
 };
 
@@ -97,19 +100,25 @@ const text = {
   letterSpacing,
 };
 
+const secondaryText = {
+  fontFamily: serif,
+  fontSize: Sizes.regular,
+  color: Colors.textSecondary,
+  fontWeight: 400,
+  lineHeight,
+  letterSpacing,
+};
+
 export const Typography = {
   text,
   textSans: {
     ...text,
     fontFamily: sans,
   },
-  secondaryText: {
-    fontFamily: serif,
-    fontSize: Sizes.regular,
-    color: Colors.textSecondary,
-    fontWeight: 400,
-    lineHeight,
-    letterSpacing,
+  secondaryText,
+  secondaryTextSans: {
+    ...secondaryText,
+    fontFamily: sans,
   },
   externalLink: css`
     font-weight: 700;

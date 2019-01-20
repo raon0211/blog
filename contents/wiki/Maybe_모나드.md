@@ -1,6 +1,7 @@
 ---
 keywords: Optional, 옵셔널, Maybe
 date: 2018-12-22T17:00:00+09:00
+summary: 끝없이 프로그래머를 괴롭히는 nullable 변수를 우아하게 처리하는 방법
 ---
 
 Maybe 모나드는 어떤 계산의 결괏값이 있을 수도, 없을 수도 있음을 나타내기 위해 사용하는 모나드이다. 다음과 같은 함수를 생각해 보자.
@@ -81,12 +82,11 @@ function getUser(userId: number): Maybe<UserEntity> {
 
 즉, `getUser`는 사용자를 가져오는 데에 성공했을 경우 `Just(user)`, 실패했을 경우 `Nothing()`을 반환한다.
 
-
 # Maybe 모나드를 다루는 방법
 
 `Maybe` 모나드를 다루는 방법에 대해 알아보자. 보다 보면 배열의 메서드들과 공통되는 부분이 많음을 발견할 수 있을 것이다.
 
-`Maybe`의 `map` 메서드는 `Maybe<T>` 안의 값을 변경할 때 사용한다. 
+`Maybe`의 `map` 메서드는 `Maybe<T>` 안의 값을 변경할 때 사용한다.
 
 ```ts
 Maybe<T>.prototype.map: (mapper: (val: T) => U) => Maybe<U>
@@ -123,11 +123,13 @@ Just(1).flatMap(x => Nothing()) === Nothing()
 `flatMap`이 강력한 점은 `map`과 `filter` 모두 `flatMap`만으로 구현할 수 있다는 점이다.
 
 ```ts
-Just(1).map(x => x + 1) === Just(1).flatMap(x => Just(x + 1)) === Just(2)
-Just(1).map(fn) === Just(1).flatMap(x => Just(fn(x))) // 위의 등식을 더욱 일반화시킨 것이다.
+(Just(1).map(x => x + 1) === Just(1).flatMap(x => Just(x + 1))) === Just(2);
+Just(1).map(fn) === Just(1).flatMap(x => Just(fn(x))); // 위의 등식을 더욱 일반화시킨 것이다.
 
-Just(1).filter(x => x > 0) === Just(1).flatMap(x => x > 0 ? Just(x) : Nothing()) === Just(1)
-Just(1).filter(fn) === Just(1).flatMap(x => fn(x) ? Just(x) : Nothing()) // 위의 등식을 더욱 일반화시킨 것이다.
+(Just(1).filter(x => x > 0) ===
+  Just(1).flatMap(x => (x > 0 ? Just(x) : Nothing()))) ===
+  Just(1);
+Just(1).filter(fn) === Just(1).flatMap(x => (fn(x) ? Just(x) : Nothing())); // 위의 등식을 더욱 일반화시킨 것이다.
 ```
 
 뿐만 아니라 `Maybe`에 `Maybe`가 중첩되는 복잡한 상황에서 `flatMap`은 더욱 강력하다.
@@ -141,8 +143,8 @@ function makeOddsDoubled(value: number): Maybe<number> {
   return Just(value * 2);
 }
 
-Just(21).flatMap(makeOddsDoubled) === Just(42)
-Just(20).flatMap(makeOddsDoubled) === Nothing()
+Just(21).flatMap(makeOddsDoubled) === Just(42);
+Just(20).flatMap(makeOddsDoubled) === Nothing();
 ```
 
 일반적인 함수형 언어에서 사용되는 패턴 매칭을 사용하면 더욱 표현적인 코드를 사용할 수 있다.
@@ -180,7 +182,6 @@ function getGreetingMessage(user: Maybe<UserEntity>) {
 실전에서 `Maybe` 모나드를 어떻게 사용하는지 보자.
 
 ```ts
-
 function getUserScore(userId: number): Maybe<number> {
   return getUser(userId).map(user => user.score);
 }
@@ -202,7 +203,7 @@ getTotalSumOfUserScores([
   20161587,
   20130138,
   // ....
-]) // --> 주어진 사용자 ID에 해당하는 점수를 모두 더한다.
+]); // --> 주어진 사용자 ID에 해당하는 점수를 모두 더한다.
 ```
 
 사용자를 가져오지 못했을 때 해당 사용자 ID의 점수를 `0`으로 처리한다는 규칙을 간단히 붙여서 함수를 쉽게 구현할 수 있었다.
@@ -218,9 +219,7 @@ function checkIfEligible(user: Maybe<UserEntity>): boolean {
 }
 
 function getEligibleUsersCount(userIds: number[]): number {
-  return userIds
-    .map(id => getUser(id))
-    .filter(user => checkIfEligible(user))
+  return userIds.map(id => getUser(id)).filter(user => checkIfEligible(user))
     .length;
 }
 
@@ -228,10 +227,10 @@ getEligibleUsersCount([
   20161587,
   20130138,
   // ....
-]) // --> 주어진 조건에 부합하는 사용자 수를 확인한다.
+]); // --> 주어진 조건에 부합하는 사용자 수를 확인한다.
 ```
 
-여기서도 마찬가지로 사용자를 가져오지 못했을 때 조건에 부합하지 않도록 한다는 규칙을 간단히 붙일 수 있었다. 
+여기서도 마찬가지로 사용자를 가져오지 못했을 때 조건에 부합하지 않도록 한다는 규칙을 간단히 붙일 수 있었다.
 
 이처럼 `Maybe` 모나드로 예전에 암시적인 `null` 혹은 `undefined`로 위험하게 처리했던 문제를 더욱 명시적이고 안전하게 처리할 수 있다.
 
@@ -241,7 +240,7 @@ Java나 JavaScript와 같이 `null`이 모든 참조 타입의 변수에 할당�
 
 ```ts
 const user: UserEntity = null;
-const maybeUser: Maybe<UserEntity> = Just(user) // === Just(null)
+const maybeUser: Maybe<UserEntity> = Just(user); // === Just(null)
 ```
 
 위의 코드에서 보듯 타입 시스템 상 `Just(null)` 혹은 `Just(undefined)`도 허용된 동작 안에 들어간다. 즉, 컴파일 에러가 나지 않는다.
@@ -262,8 +261,10 @@ Maybe.from(1) === Just(1)
 
 1. `Maybe` 모나드는 어떤 연산의 결괏값이 있을 수도, 없을 수도 있음을 나타낸다.
 2. 기존에는 값이 없을 수 있는 가능성에 대해,
-    - 암시적으로 `null` 혹은 `undefined`를 반환하거나
-    - 기본값을 명시적으로 받도록 하여
+
+   - 암시적으로 `null` 혹은 `undefined`를 반환하거나
+   - 기본값을 명시적으로 받도록 하여
 
    대처하였으나, 런타임의 TypeError 위험성이 커지거나 기본값을 당장 정하기 어려운 이유로 인해 해결책이 깔끔하지 못했다.
+
 3. `Maybe` 모나드는 값이 있는지 없는지 나타내는 맥락(`Just`, `Nothing`)을 함께 가지고 다니면서 명시적으로 값이 없을 수 있음을 나타낸다.
