@@ -12,67 +12,85 @@ import {
 
 export default function Header() {
   return (
-    <header>
-      <div
-        css={[
-          Paddings.horizontal.medium,
-          Flex.horizontal,
-          Flex.spaceBetweenItems,
-          Flex.alignItemsToCenter,
-          Containers.wrap,
-          { maxWidth: 1080, flexWrap: 'wrap' },
-          Margins.vertical.regular,
-        ]}
-      >
-        <HeaderLink
-          href="/"
+    <header
+      css={[
+        Paddings.horizontal.medium,
+        Flex.horizontal,
+        Containers.wrap,
+        { maxWidth: 1080, flexWrap: 'wrap' },
+        Margins.vertical.regular,
+      ]}
+    >
+      <HeaderMainLink
+        href="/"
+        imageUrl="https://static.sojin.io/images/leo.jpg"
+        title="Sojin Park"
+        description="Frontend Dev"
+      />
+      <nav css={Margins.vertical.small}>
+        <HeaderLink href="/blog">끄적끄적</HeaderLink>
+        <HeaderLink href="/articles">글뭉치</HeaderLink>
+        <HeaderLink href="/about">소개</HeaderLink>
+      </nav>
+    </header>
+  );
+}
+
+interface HeaderMainLinkProps {
+  href: string;
+  imageUrl: string;
+  title: string;
+  description: string;
+}
+
+function HeaderMainLink({
+  href,
+  imageUrl,
+  title,
+  description,
+}: HeaderMainLinkProps) {
+  return (
+    <HeaderLink
+      href={href}
+      css={[
+        Margins.vertical.small,
+        Margins.right.medium,
+        Flex.horizontal,
+        {
+          fontSize: Sizes.regular,
+          lineHeight: 1,
+        },
+      ]}
+    >
+      <img
+        src={imageUrl}
+        css={{
+          width: '3rem',
+          height: '3rem',
+          borderRadius: '3rem',
+        }}
+      />
+      <div css={Margins.left.small}>
+        <div
           css={[
-            Margins.vertical.small,
-            Margins.right.medium,
+            Margins.bottom.xxSmall,
             {
-              display: 'flex',
-              fontSize: Sizes.regular,
-              alignItems: 'center',
-              lineHeight: 1,
+              color: Colors.text,
+              fontWeight: 700,
             },
           ]}
         >
-          <img
-            src="https://static.sojin.io/images/leo.jpg"
-            css={{
-              width: '3rem',
-              height: '3rem',
-              borderRadius: '3rem',
-            }}
-          />
-          <div css={Margins.left.small}>
-            <div
-              css={[
-                Margins.bottom.xxSmall,
-                {
-                  color: Colors.text,
-                  fontWeight: 700,
-                },
-              ]}
-            >
-              Sojin Park
-            </div>
-            <small
-              css={{
-                color: Colors.textSecondary,
-              }}
-            >
-              Frontend Dev
-            </small>
-          </div>
-        </HeaderLink>
-        <nav css={Margins.vertical.small}>
-          <HeaderLink href="/blog">끄적끄적</HeaderLink>
-          <HeaderLink href="/articles">글뭉치</HeaderLink>
-          <HeaderLink href="/about">소개</HeaderLink>
-        </nav>
+          {title}
+        </div>
+        <small
+          css={{
+            color: Colors.textSecondary,
+          }}
+        >
+          {description}
+        </small>
       </div>
-    </header>
+    </HeaderLink>
   );
 }
 
