@@ -1,7 +1,13 @@
+import { Link as RouterLink } from '@reach/router';
 import { format } from 'date-fns';
 import * as React from 'react';
-import { Link } from '../style/components';
-import { Flex, Margins, Paddings, Typography } from '../style/constants';
+import {
+  Colors,
+  Flex,
+  Margins,
+  Paddings,
+  Typography,
+} from '../style/constants';
 
 interface Props {
   article: { id: string; title: string; summary?: string; date?: Date };
@@ -11,12 +17,17 @@ export default function ArticleItem({ article }: Props) {
   const hasSummary = article.summary !== undefined;
 
   return (
-    <div css={Margins.verticalList.xSmall}>
+    <RouterLink
+      to={`/article/${article.id}`}
+      css={[
+        { color: Colors.text, textDecoration: 'none', display: 'block' },
+        Margins.verticalList.xSmall,
+      ]}
+    >
       <div
         css={[Flex.horizontal, Flex.spaceBetweenItems, Flex.alignItemsToCenter]}
       >
-        <Link
-          href={`/article/${article.id}`}
+        <div
           css={[
             Paddings.vertical.xxSmall,
             Margins.vertical.xxSmall,
@@ -30,7 +41,7 @@ export default function ArticleItem({ article }: Props) {
           ]}
         >
           {article.title}
-        </Link>{' '}
+        </div>{' '}
         {article.date !== undefined ? (
           <span
             css={[
@@ -48,12 +59,12 @@ export default function ArticleItem({ article }: Props) {
           css={[
             Typography.secondaryTextSans,
             Margins.bottom.regular,
-            Paddings.left.regular,
+            Paddings.left.xSmall,
           ]}
         >
           {article.summary}
         </div>
       ) : null}
-    </div>
+    </RouterLink>
   );
 }

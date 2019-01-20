@@ -95,7 +95,7 @@ function HeaderLink({ className, href, children }: HeaderLinkProps) {
           textDecoration: 'none',
           color: Colors.textSecondary,
         },
-        Margins.horizontalList.medium,
+        Margins.horizontalList.regular,
       ]}
     >
       {children}

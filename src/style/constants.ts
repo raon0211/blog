@@ -95,7 +95,7 @@ const text = {
   fontFamily: serif,
   fontSize: Sizes.regular,
   color: Colors.text,
-  fontWeight: 500,
+  fontWeight: 400,
   lineHeight,
   letterSpacing,
 };
