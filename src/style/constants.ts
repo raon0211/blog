@@ -3,8 +3,8 @@ import { copyMapper, makeStyleFromSizes } from './helpers';
 
 export const Sizes = {
   none: 0,
-  xSmall: '0.3rem',
-  mediumSmall: '0.5rem',
+  xxSmall: '0.3rem',
+  xSmall: '0.5rem',
   small: '0.75rem',
   regular: '1rem',
   medium: '1.25rem',

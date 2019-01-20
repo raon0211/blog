@@ -11,15 +11,15 @@ export default function ArticleItem({ article }: Props) {
   const hasSummary = article.summary !== undefined;
 
   return (
-    <div css={Margins.verticalList.mediumSmall}>
+    <div css={Margins.verticalList.xSmall}>
       <div
         css={[Flex.horizontal, Flex.spaceBetweenItems, Flex.alignItemsToCenter]}
       >
         <Link
           href={`/article/${article.id}`}
           css={[
-            Paddings.vertical.xSmall,
-            Margins.vertical.xSmall,
+            Paddings.vertical.xxSmall,
+            Margins.vertical.xxSmall,
             Typography.oneLine as any,
             Typography.hideWithEllipsis,
             {

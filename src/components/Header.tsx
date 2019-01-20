@@ -1,6 +1,14 @@
 import * as React from 'react';
 import { Link } from '../style/components';
-import { Colors, Containers, Flex, Margins, Paddings, Sizes, Typography } from '../style/constants';
+import {
+  Colors,
+  Containers,
+  Flex,
+  Margins,
+  Paddings,
+  Sizes,
+  Typography,
+} from '../style/constants';
 
 export default function Header() {
   return (
@@ -40,7 +48,7 @@ export default function Header() {
           <div css={Margins.left.small}>
             <div
               css={[
-                Margins.bottom.xSmall,
+                Margins.bottom.xxSmall,
                 {
                   color: Colors.text,
                   fontWeight: 700,

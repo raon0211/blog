@@ -1,10 +1,10 @@
 import css from '@emotion/css';
-import * as React from 'react';
-import { Paddings, Margins, Typography, Sizes, Colors } from '../constants';
 import chroma from 'chroma-js';
+import * as React from 'react';
+import { Colors, Margins, Paddings, Sizes, Typography } from '../constants';
 
 const baseButton = [
-  Paddings.vertical.mediumSmall,
+  Paddings.vertical.xSmall,
   Paddings.horizontal.regular,
   Margins.right.regular,
   Typography.textSans,

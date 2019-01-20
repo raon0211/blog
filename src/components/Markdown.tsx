@@ -40,14 +40,14 @@ export default class Markdown extends React.PureComponent<Props> {
           '& ul, & ol': [Paddings.left.large],
           '& > p + ul, & > p + ol': [Margins.vertical.medium],
           '& ul > li': [
-            Margins.vertical.xSmall,
+            Margins.vertical.xxSmall,
             Typography.text,
             {
               listStyleType: 'disc',
             },
           ],
           '& ol > li': [
-            Margins.vertical.xSmall,
+            Margins.vertical.xxSmall,
             Typography.text,
             {
               listStyleType: 'decimal',
