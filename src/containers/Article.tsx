@@ -6,6 +6,7 @@ import Markdown from '../components/Markdown';
 import Section from '../components/Section';
 import { ArticleEntity } from '../models/Article';
 import { Meta, Title } from '../style/components';
+import { Margins, Sizes } from '../style/constants';
 import { buildAbsoluteUrl } from '../utils';
 
 interface Props {
@@ -49,6 +50,11 @@ class Article extends React.PureComponent<Props> {
         </Head>
         <Title>
           {title}
+          {article.summary !== undefined ? (
+            <Meta css={[{ fontSize: Sizes.medium }, Margins.top.xxSmall]}>
+              {article.summary}
+            </Meta>
+          ) : null}
           {article.date !== undefined ? (
             <Meta>{format(article.date, 'YYYY. M. D.')}</Meta>
           ) : null}
