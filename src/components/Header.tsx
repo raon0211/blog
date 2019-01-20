@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link } from '../style/components';
+import { InternalLink } from 'style/components/internalLink';
 import {
   Colors,
   Containers,
@@ -84,7 +84,7 @@ interface HeaderLinkProps {
 
 function HeaderLink({ className, href, children }: HeaderLinkProps) {
   return (
-    <Link
+    <InternalLink
       className={className}
       href={href}
       css={[
@@ -99,6 +99,6 @@ function HeaderLink({ className, href, children }: HeaderLinkProps) {
       ]}
     >
       {children}
-    </Link>
+    </InternalLink>
   );
 }
