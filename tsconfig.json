@@ -9,7 +9,8 @@
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "types": ["node", "@emotion/core"]
+    "types": ["node", "@emotion/core"],
+    "baseUrl": "src"
   },
   "exclude": ["dist/**/*", "public/**/*", "node_modules"]
 }
