@@ -1,13 +1,8 @@
-import * as React from 'react';
-import { Margins, Typography, Paddings, Colors } from '../style/constants';
-import {
-  headingCss,
-  paragraphCss,
-  linkCss,
-  subheadingCss,
-} from '../style/components';
-import Prism from 'prismjs';
 import { navigate } from '@reach/router';
+import Prism from 'prismjs';
+import * as React from 'react';
+import { headingCss, paragraphCss, subheadingCss } from '../style/components';
+import { Margins, Paddings, Typography } from '../style/constants';
 
 interface Props {
   className?: string;
@@ -68,7 +63,7 @@ export default class Markdown extends React.PureComponent<Props> {
           ],
           '& > blockquote': [
             Margins.vertical.xLarge,
-            Paddings.left.medium,
+            Paddings.left.regular,
             {
               borderLeft: '3px solid #e0e0e0',
             },
