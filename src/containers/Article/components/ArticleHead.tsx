@@ -1,3 +1,4 @@
+import OpenGraphs from 'components/OpenGraphs';
 import unescape from 'lodash/unescape';
 import React from 'react';
 import { Head } from 'react-static';
@@ -17,21 +18,13 @@ function ArticleHead({ article }: Props) {
     <Head>
       <title>{title} - Sojin Park</title>
 
-      <meta property="og:title" content={title} />
-      <meta property="og:type" content="article" />
-      <meta
-        property="og:url"
-        content={buildAbsoluteUrl({ articleId: article.id })}
+      <OpenGraphs
+        title={title}
+        type="article"
+        url={buildAbsoluteUrl({ articleId: article.id })}
+        description={articleDescription}
+        updatedDate={article.date}
       />
-      <meta property="og:description" content={articleDescription} />
-      {article.date !== undefined ? (
-        <meta property="og:updated_time" content={article.date.toString()} />
-      ) : null}
-
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={id} />
-      <meta name="twitter:description" content={articleDescription} />
-      <meta name="twitter:creator" content="@chaevit" />
     </Head>
   );
 }

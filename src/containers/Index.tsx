@@ -1,10 +1,12 @@
+import OpenGraphs from 'components/OpenGraphs';
 import * as React from 'react';
 import { Head, withRouteData } from 'react-static';
+import { InternalLink } from 'style/components/internalLink';
 import ArticleItem from '../components/ArticleItem';
 import Markdown from '../components/Markdown';
 import Section from '../components/Section';
 import { ArticleEntity } from '../models/Article';
-import { Heading, Link, Title } from '../style/components';
+import { Heading, Title } from '../style/components';
 import { ButtonStyles } from '../style/components/button';
 import { Margins } from '../style/constants';
 
@@ -21,23 +23,25 @@ function Index({ content, recentArticles }: Props) {
     <>
       <Head>
         <meta name="description" content={siteDescription} />
-        <meta property="og:url" content="https://sojin.io/" />
-        <meta property="og:site_name" content="Sojin Park" />
-        <meta property="og:locale" content="ko" />
-        <meta property="og:url" content="https://sojin.io" />
-        <meta property="og:description" content={siteDescription} />
+
+        <OpenGraphs
+          title="Sojin Park"
+          type="article"
+          url="https://sojin.io"
+          description={siteDescription}
+        />
         <title>Sojin Park</title>
       </Head>
       <Section>
         <Title>반가워요</Title>
         <Markdown html={content.html} />
         <div css={[Margins.top.xLarge]}>
-          <Link css={ButtonStyles.primary} href="/about">
+          <InternalLink css={ButtonStyles.primary} href="/about">
             소개 보기 &rarr;
-          </Link>
-          <Link css={ButtonStyles.secondary} href="/blog">
+          </InternalLink>
+          <InternalLink css={ButtonStyles.secondary} href="/blog">
             끄적끄적 &rarr;
-          </Link>
+          </InternalLink>
         </div>
       </Section>
       <Section>
