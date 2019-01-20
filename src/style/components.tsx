@@ -153,8 +153,8 @@ export const documentCss = css`
     ${Margins.top.medium};
   }
 
-  & p + ul,
-  & p + ol {
+  & > p + ul,
+  & > p + ol {
     ${Margins.vertical.medium};
   }
 
