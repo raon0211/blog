@@ -68,6 +68,7 @@ function HeaderMainLink({
           width: '3rem',
           height: '3rem',
           borderRadius: '3rem',
+          backgroundColor: '#8e8270',
         }}
       />
       <div css={Margins.left.small}>
