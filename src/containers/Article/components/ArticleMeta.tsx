@@ -1,15 +1,28 @@
+import ConditionalDiv from 'components/ConditionalDiv';
 import React from 'react';
-import { Meta } from '../../../style/components';
+import { metaCss } from '../../../style/components';
 
-interface Props {
+interface Props<T> {
   className?: string;
-  value: string;
+  value?: T;
+  formatter?: (val: T) => React.ReactNode;
 }
 
-export default function ArticleMeta({ className, value }: Props) {
+export default function ArticleMeta<T>({
+  className,
+  value,
+  formatter,
+}: Props<T>) {
+  if (value === undefined) {
+    return null;
+  }
+
   return (
-    <Meta>
-      <div className={className}>{value}</div>
-    </Meta>
+    <ConditionalDiv
+      className={className}
+      value={value}
+      formatter={formatter}
+      css={metaCss}
+    />
   );
 }
