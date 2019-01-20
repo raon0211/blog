@@ -1,11 +1,10 @@
 import css from '@emotion/css';
-import { Link as RouterLink } from '@reach/router';
 import * as React from 'react';
 import { Borders, Colors, Margins, Paddings, Typography } from './constants';
 
-interface Props {
+interface CommonProps {
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const titleCss = [
@@ -17,7 +16,7 @@ export const titleCss = [
   `,
 ];
 
-export function Title({ className, children }: Props) {
+export function Title({ className, children }: CommonProps) {
   return (
     <h1 className={className} css={titleCss}>
       {children}
@@ -32,7 +31,7 @@ export const metaCss = [
   Paddings.verticalList.none,
 ];
 
-export function Meta({ className, children }: Props) {
+export function Meta({ className, children }: CommonProps) {
   return (
     <div className={className} css={metaCss}>
       {children}
@@ -48,7 +47,7 @@ export const headingCss = [
   Borders.bottom,
 ];
 
-export function Heading({ className, children }: Props) {
+export function Heading({ className, children }: CommonProps) {
   return (
     <h1 className={className} css={headingCss}>
       {children}
@@ -62,7 +61,7 @@ export const subheadingCss = [
   Typography.h2,
 ];
 
-export function Subheading({ className, children }: Props) {
+export function Subheading({ className, children }: CommonProps) {
   return (
     <h2 className={className} css={subheadingCss}>
       {children}
@@ -70,13 +69,20 @@ export function Subheading({ className, children }: Props) {
   );
 }
 
+export const heading3Css = [
+  Typography.text,
+  Margins.top.medium,
+  Margins.bottom.small,
+  { fontWeight: 700 },
+];
+
 export const paragraphCss = [
   Margins.vertical.none,
   Margins.verticalList.regular,
   Typography.text,
 ];
 
-export function Paragraph({ className, children }: Props) {
+export function Paragraph({ className, children }: CommonProps) {
   return (
     <p className={className} css={paragraphCss}>
       {children}
@@ -84,13 +90,99 @@ export function Paragraph({ className, children }: Props) {
   );
 }
 
-export const linkCss = [Typography.internalLink];
+export const listItemCss = [Margins.vertical.xxSmall, Typography.text];
 
-interface LinkProps {
-  className?: string;
-  href: string;
-}
+export const listCss = [
+  Paddings.left.large,
+  css`
+    p + & {
+      ${Margins.vertical.medium}
+    }
+  `,
+];
 
-export function Link({ href, ...props }: Props & LinkProps) {
-  return <RouterLink to={href} css={linkCss} {...props} />;
-}
+export const unorderedListCss = css`
+  ${listCss};
+  & > li {
+    list-style-type: disc;
+  }
+`;
+
+export const orderedListCss = css`
+  ${listCss};
+  & > li {
+    list-style-type: decimal;
+  }
+`;
+
+export const documentImageCss = css`
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #f0f0f0;
+`;
+
+export const blockquoteCss = css`
+  ${Margins.vertical.xLarge};
+  ${Paddings.left.regular};
+  border-left: 3px solid #e0e0e0;
+`;
+
+export const documentCss = css`
+  & h1 {
+    ${headingCss};
+  }
+
+  & h2 {
+    ${subheadingCss};
+  }
+
+  & h1 + h2 {
+    ${Margins.top.large};
+  }
+
+  & h3 {
+    ${heading3Css};
+  }
+
+  & p {
+    ${paragraphCss};
+  }
+
+  & > p + p {
+    ${Margins.top.medium};
+  }
+
+  & p + ul,
+  & p + ol {
+    ${Margins.vertical.medium};
+  }
+
+  & ul {
+    ${unorderedListCss};
+  }
+
+  & ol {
+    ${orderedListCss};
+  }
+
+  & li {
+    ${listItemCss};
+  }
+
+  & p > img {
+    ${documentImageCss};
+  }
+
+  & > blockquote {
+    ${blockquoteCss};
+  }
+
+  & a[href^='\\/'] {
+    ${Typography.internalLink};
+  }
+
+  & a:not([href^='\\/']) {
+    ${Typography.externalLink};
+  }
+`;
