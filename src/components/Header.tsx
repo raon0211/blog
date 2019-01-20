@@ -1,15 +1,6 @@
 import * as React from 'react';
-import {
-  Paddings,
-  Flex,
-  Typography,
-  Sizes,
-  Margins,
-  Borders,
-  Containers,
-  Colors,
-} from '../style/constants';
-import { Heading, headingCss, Link } from '../style/components';
+import { Link } from '../style/components';
+import { Colors, Containers, Flex, Margins, Paddings, Sizes, Typography } from '../style/constants';
 
 export default function Header() {
   return (
@@ -39,7 +30,7 @@ export default function Header() {
           ]}
         >
           <img
-            src="https://static.sojin.io/images/leo.png"
+            src="https://static.sojin.io/images/leo.jpg"
             css={{
               width: '3rem',
               height: '3rem',
