@@ -38,6 +38,7 @@ export const Margins = {
     Sizes,
     size => css`
       & + & {
+        display: inline-block;
         margin-left: ${size};
       }
     `
@@ -46,6 +47,7 @@ export const Margins = {
     Sizes,
     size => css`
       & + & {
+        display: block;
         margin-top: ${size};
       }
     `
@@ -84,19 +86,15 @@ export const Paddings = {
 };
 
 export const Flex = {
-  horizontal: {
-    display: 'flex',
-  },
-  vertical: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  spaceBetweenItems: {
-    justifyContent: 'space-between',
-  },
-  alignItemsToCenter: {
-    alignItems: 'center',
-  },
+  horizontal: css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `,
+  vertical: css`
+    display: flex;
+    flex-direction: column;
+  `,
 };
 
 const lineHeight = 1.75;
@@ -174,11 +172,11 @@ export const Typography = {
     lineHeight: titleLineHeight,
     letterSpacing,
   },
-  oneLine: {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    letterSpacing,
-  },
+  oneLine: css`
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: ${letterSpacing}px;
+  `,
   hideWithEllipsis: {
     textOverflow: 'ellipsis',
   },

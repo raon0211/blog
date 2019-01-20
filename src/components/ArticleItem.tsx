@@ -1,70 +1,69 @@
 import { Link as RouterLink } from '@reach/router';
+import ConditionalDiv from 'components/ConditionalDiv';
 import { format } from 'date-fns';
+import { ArticleEntity } from 'models/Article';
 import * as React from 'react';
-import {
-  Colors,
-  Flex,
-  Margins,
-  Paddings,
-  Typography,
-} from '../style/constants';
+import { Flex, Margins, Paddings, Typography } from '../style/constants';
 
 interface Props {
-  article: { id: string; title: string; summary?: string; date?: Date };
+  article: Pick<ArticleEntity, 'id' | 'title' | 'summary' | 'date'>;
 }
 
 export default function ArticleItem({ article }: Props) {
-  const hasSummary = article.summary !== undefined;
-
   return (
-    <RouterLink
-      to={`/article/${article.id}`}
+    <RouterLink to={`/article/${article.id}`} css={Margins.verticalList.xSmall}>
+      <div css={Flex.horizontal}>
+        <ArticleTitle title={article.title} />{' '}
+        <ArticleDate date={article.date} />
+      </div>
+      <ArticleSummary summary={article.summary} />
+    </RouterLink>
+  );
+}
+
+function ArticleTitle({ title }: { title: string }) {
+  return (
+    <div
       css={[
-        { color: Colors.text, textDecoration: 'none', display: 'block' },
-        Margins.verticalList.xSmall,
+        Paddings.vertical.xxSmall,
+        Margins.vertical.xxSmall,
+        Typography.oneLine,
+        Typography.hideWithEllipsis,
+        {
+          fontSize: '1.05rem',
+          fontWeight: 500,
+          textDecoration: 'none',
+        },
       ]}
     >
-      <div
-        css={[Flex.horizontal, Flex.spaceBetweenItems, Flex.alignItemsToCenter]}
-      >
-        <div
-          css={[
-            Paddings.vertical.xxSmall,
-            Margins.vertical.xxSmall,
-            Typography.oneLine as any,
-            Typography.hideWithEllipsis,
-            {
-              fontSize: '1.05rem',
-              fontWeight: 500,
-              textDecoration: 'none',
-            },
-          ]}
-        >
-          {article.title}
-        </div>{' '}
-        {article.date !== undefined ? (
-          <span
-            css={[
-              Typography.secondaryTextSans,
-              Typography.oneLine as any,
-              Margins.left.regular,
-            ]}
-          >
-            {format(article.date, 'YYYY. M. D.')}
-          </span>
-        ) : null}
-      </div>
-      {hasSummary ? (
-        <div
-          css={[
-            Typography.secondaryTextSans,
-            Margins.bottom.regular,
-            Paddings.left.xSmall,
-          ]}
-        >
-          {article.summary}
-        </div>
-      ) : null}
-    </RouterLink>
+      {title}
+    </div>
+  );
+}
+
+function ArticleDate({ date }: { date: Date | undefined }) {
+  return (
+    <ConditionalDiv
+      value={date}
+      formatter={d => format(d, 'YYYY. M. D.')}
+      css={[
+        Typography.secondaryTextSans,
+        Typography.oneLine,
+        Margins.left.regular,
+      ]}
+    />
+  );
+}
+
+function ArticleSummary({ summary }: { summary?: string }) {
+  return (
+    <ConditionalDiv
+      value={summary}
+      css={[
+        Typography.secondaryTextSans,
+        Margins.bottom.regular,
+        Paddings.left.xSmall,
+      ]}
+    />
   );
 }
