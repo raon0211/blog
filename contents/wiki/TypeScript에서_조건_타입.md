@@ -4,7 +4,7 @@ date: 2019-01-08T17:00:00+09:00
 summary: TypeScript 2.8부터 추가된 강력한 조건 타입에 대해 자세히 알아보자
 ---
 
-[조건 타입(Conditional types)](https://github.com/Microsoft/TypeScript/pull/21316)은 TypeScript 2.8부터 추가된 강력한 기능 중 하나이다. TypeScript 프로젝트의 주요 기여자 [Ryan Cavanaugh](https://twitter.com/SeaRyanC/status/1029846761718702081)의 트윗을 간단하게 번역하자면
+[조건 타입^Conditional types^](https://github.com/Microsoft/TypeScript/pull/21316)은 TypeScript 2.8부터 추가된 강력한 기능 중 하나이다. TypeScript 프로젝트의 주요 기여자 [Ryan Cavanaugh](https://twitter.com/SeaRyanC/status/1029846761718702081)의 트윗을 간단하게 번역하자면
 
 > Working through our (enormous) backlog of unsorted TypeScript "Suggestions" and it's remarkable how many of them are solved by conditional types.
 
@@ -14,7 +14,7 @@ summary: TypeScript 2.8부터 추가된 강력한 조건 타입에 대해 자세
 
 # TypeScript에서의 `extends`란?
 
-조건 타입이 무엇인지 이해하기 위해 TypeScript의 `extends` 연산에 대해 이해가 필요하다. TypeScript는 덕 타이핑(Duck typing)을 기반으로 타입 시스템이 짜여 있다. 덕 타이핑은 구조 기반 타이핑(Structural typing)이라고도 하는데, 다음 속담이 잘 알려져 있다.
+조건 타입이 무엇인지 이해하기 위해 TypeScript의 `extends` 연산에 대해 이해가 필요하다. TypeScript는 덕 타이핑^Duck typing^을 기반으로 타입 시스템이 짜여 있다. 덕 타이핑은 구조 기반 타이핑^Structural typing^이라고도 하는데, 다음 속담이 잘 알려져 있다.
 
 > If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
 
@@ -30,7 +30,7 @@ const a: A = new B(); // OK
 new A() instanceof B; // --> false
 ```
 
-Java와 같은 언어에서는 `A`와 `B`가 엄연히 다른 클래스이기 때문에 컴파일 에러가 발생한다. 그러나 TypeScript는 타입의 동등성을 판단할 때 구조적으로 동등한지(structural equivalence)만을 따지기 때문에, 컴파일 에러가 발생하지 않는다. 여기서 구조적으로 동등하다는 이야기는 모든 프로퍼티(프로퍼티 함수, 즉 메서드 포함)의 이름과 타입이 일치해서 같은 동작을 수행할 수 있다는 것을 말한다.
+Java와 같은 언어에서는 `A`와 `B`가 엄연히 다른 클래스이기 때문에 컴파일 에러가 발생한다. 그러나 TypeScript는 타입의 동등성을 판단할 때 구조적으로 동등한지^Structural equivalence^만을 따지기 때문에, 컴파일 에러가 발생하지 않는다. 여기서 구조적으로 동등하다는 이야기는 모든 프로퍼티(프로퍼티 함수, 즉 메서드 포함)의 이름과 타입이 일치해서 같은 동작을 수행할 수 있다는 것을 말한다.
 
 예시에서 `A`와 `B`의 타입이 동등한 이유는 두 클래스가 모두 빈 클래스여서 구조적으로 같은 클래스로 볼 수 있기 때문이다.
 
@@ -59,7 +59,7 @@ const person2: Person = student;
 const student2: Student = person;
 ```
 
-마찬가지 논리로 본다면 TypeScript에서 어떤 타입 `Sub`가 다른 타입 `Super`에 할당될 수 있다(assignable)라고 하는 것은
+마찬가지 논리로 본다면 TypeScript에서 어떤 타입 `Sub`가 다른 타입 `Super`에 할당될 수 있다^Assignable^라고 하는 것은
 
 1. `Sub` 타입이 `Super` 타입의 모든 프로퍼티를 가지고 있거나
 2. 그것보다 더 많이 가지고 있음
@@ -80,7 +80,7 @@ americano = 'latte'; // (X) 컴파일 에러: string은 'americano' 타입에 �
 
 ## 바닥 타입과 꼭대기 타입의 할당 가능성
 
-타입 이론에서 모든 타입의 하위 타입인 바닥 타입(Bottom type) $\perp$과 모든 타입의 부모 타입인 꼭대기 타입(Top type) $\top$도 참고하면 좋다. TypeScript의 바닥 타입 `never`, 꼭대기 타입 `any`와 `unknown`, 그리고 모든 타입 `T`에 대해 아래가 성립한다.
+타입 이론에서 모든 타입의 하위 타입인 바닥 타입^Bottom type^ $\perp$과 모든 타입의 부모 타입인 꼭대기 타입^Top type^ $\top$도 참고하면 좋다. TypeScript의 바닥 타입 `never`, 꼭대기 타입 `any`와 `unknown`, 그리고 모든 타입 `T`에 대해 아래가 성립한다.
 
 ```ts
 never extends T
@@ -110,7 +110,7 @@ type NonNullable<T> = T extends null | undefined ? never : T;
 
 # 분배 조건 타입
 
-TypeScript 조건 타입에 정의된 또다른 특별한 규칙이 있는데 그것이 분배 조건 타입(Distributive conditional type)이다. 이는 위의 조건 타입 `A extends B ? X : Y`에서 `A`에 합 타입(Union type)이 들어왔을 경우 적용되는 규칙인데, 예시를 통해 어떤 규칙인지 살펴보자.
+TypeScript 조건 타입에 정의된 또다른 특별한 규칙이 있는데 그것이 분배 조건 타입^Distributive conditional type^이다. 이는 위의 조건 타입 `A extends B ? X : Y`에서 `A`에 합 타입^Union type^이 들어왔을 경우 적용되는 규칙인데, 예시를 통해 어떤 규칙인지 살펴보자.
 
 ```ts
 type Animal = Lion | Zebra | Tiger | Shark;

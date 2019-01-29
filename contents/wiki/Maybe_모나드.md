@@ -21,7 +21,7 @@ function getUser(userId: number): UserEntity {
 기존의 Java나 C 등의 언어에서는 이에 대해
 
 1. `null` 등의 누가 봐도 유효하지 않은 값을 반환하거나
-2. 유효하지 않은 ID가 주어졌음을 알리는 예외(Exception)를 던지는 방법으로
+2. 유효하지 않은 ID가 주어졌음을 알리는 예외^Exception^를 던지는 방법으로
 
 대응하였다.
 

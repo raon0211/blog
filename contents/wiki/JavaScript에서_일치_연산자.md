@@ -14,8 +14,8 @@ JavaScript를 다룬다고 하면 늘 듣는 말이 있다. "예측 불허의 �
 
 JavaScript에는 동일성을 검증하기 위해 3가지 방법이 주어져 있다.
 
-1. 엄격 일치 비교 (Strict Equality Comparison) 연산자 `===`
-2. 추상 일치 비교 (Abstract Equality Comparison) 연산자 `==`
+1. 엄격 일치 비교^Strict Equality Comparison^ 연산자 `===`
+2. 추상 일치 비교^Abstract Equality Comparison^ 연산자 `==`
 3. `Object.is`로 사용하는 `SameValue`
 
 # 엄격 일치 비교 연산자 `===`
