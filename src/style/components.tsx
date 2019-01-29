@@ -185,4 +185,10 @@ export const documentCss = css`
   & a:not([href^='\\/']) {
     ${Typography.externalLink};
   }
+
+  & sup {
+    vertical-align: top;
+    font-size: 0.8em;
+    margin: 0 0.1em;
+  }
 `;

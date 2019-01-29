@@ -192,13 +192,24 @@ function convertDisplayFormula(content) {
   );
 }
 
+function convertTranslatedWord(content) {
+  return content.replace(
+    /\^(.+?)\^/g,
+    (_, translatedWord) => `<sup>${translatedWord}</sup>`
+  );
+}
+
 function chain(...fns) {
   return input =>
     fns.reduce((prevOutput, currentFn) => currentFn(prevOutput), input);
 }
 
 function processFormulas(content) {
-  return chain(convertDisplayFormula, convertInlineFormula)(content);
+  return chain(
+    convertTranslatedWord,
+    convertDisplayFormula,
+    convertInlineFormula
+  )(content);
 }
 
 function createLinkMap(markdowns) {
