@@ -191,4 +191,8 @@ export const documentCss = css`
     font-size: 0.8em;
     margin: 0 0.1em;
   }
+
+  & sup > * {
+    vertical-align: top;
+  }
 `;
