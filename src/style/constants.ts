@@ -1,4 +1,5 @@
 import css from '@emotion/css';
+import color from 'tinycolor2';
 import { copyMapper, makeStyleFromSizes } from './helpers';
 
 export const Sizes = {
@@ -150,6 +151,9 @@ export const Typography = {
   internalLink: {
     color: Colors.text,
     textDecoration: 'underline',
+    textDecorationColor: color(Colors.text)
+      .setAlpha(0.25)
+      .toString(),
   },
   title: {
     fontSize: Sizes.xLarge,

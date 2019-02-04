@@ -25,7 +25,8 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-static": "^6.0.18",
-    "react-static-plugin-typescript": "^1.0.1"
+    "react-static-plugin-typescript": "^1.0.1",
+    "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
