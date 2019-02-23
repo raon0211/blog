@@ -28,7 +28,7 @@ function Document({ Html, Head, Body, children, renderMeta }) {
   return (
     <Html lang="ko">
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta content="IE=edge,chrome=1" httpEquiv="X-UA-Compatible" />
         <link
