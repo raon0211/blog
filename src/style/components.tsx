@@ -1,5 +1,5 @@
 import css from '@emotion/css';
-import * as React from 'react';
+import React from 'react';
 import { Borders, Colors, Margins, Paddings, Typography } from './constants';
 
 interface CommonProps {

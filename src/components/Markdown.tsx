@@ -1,6 +1,6 @@
 import { navigate } from '@reach/router';
 import Prism from 'prismjs';
-import * as React from 'react';
+import React from 'react';
 import { documentCss } from '../style/components';
 
 interface Props {

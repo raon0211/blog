@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { withRouteData } from 'react-static';
 import ArticleItem from '../components/ArticleItem';

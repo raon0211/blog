@@ -2,7 +2,7 @@ import { Link as ArticleLink } from '@reach/router';
 import ConditionalDiv from 'components/ConditionalDiv';
 import { format } from 'date-fns';
 import { ArticleEntity } from 'models/Article';
-import * as React from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Flex, Margins, Paddings, Typography } from '../style/constants';
 
 interface Props {

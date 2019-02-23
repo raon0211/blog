@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import * as React from 'react';
+import React from 'react';
 import { prefetch, withRouteData } from 'react-static';
 import Markdown from '../../components/Markdown';
 import Section from '../../components/Section';

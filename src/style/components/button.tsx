@@ -1,6 +1,6 @@
 import css from '@emotion/css';
 import chroma from 'chroma-js';
-import * as React from 'react';
+import React from 'react';
 import { Colors, Margins, Paddings, Sizes, Typography } from '../constants';
 
 const baseButton = [

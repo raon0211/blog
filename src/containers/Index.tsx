@@ -1,5 +1,5 @@
 import OpenGraphs from 'components/OpenGraphs';
-import * as React from 'react';
+import React from 'react';
 import { Head, withRouteData } from 'react-static';
 import { InternalLink } from 'style/components/internalLink';
 import ArticleItem from '../components/ArticleItem';

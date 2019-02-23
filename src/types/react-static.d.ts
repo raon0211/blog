@@ -1,5 +1,5 @@
 declare module 'react-static' {
-  import * as React from 'react';
+  import React from 'react';
 
   export class Root extends React.Component {}
 }

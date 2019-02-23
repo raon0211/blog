@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Margins } from '../style/constants';
 
 interface Props {
