@@ -70,6 +70,7 @@ function HeaderMainLink({
           borderRadius: '3rem',
           backgroundColor: '#8e8270',
         }}
+        alt="프로필 사진"
       />
       <div css={Margins.left.small}>
         <div
