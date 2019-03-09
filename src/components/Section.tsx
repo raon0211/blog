@@ -2,13 +2,17 @@ import * as React from 'react';
 import { Margins } from '../style/constants';
 
 interface Props {
+  element?: 'section' | 'article';
   children: React.ReactNode;
 }
 
-export default function Section({ children }: Props) {
+export default function Section({
+  element: Element = 'section',
+  children,
+}: Props) {
   return (
-    <section css={[Margins.horizontal.large, Margins.bottom.xxLarge]}>
+    <Element css={[Margins.horizontal.large, Margins.bottom.xxLarge]}>
       {children}
-    </section>
+    </Element>
   );
 }

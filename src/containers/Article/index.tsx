@@ -22,7 +22,7 @@ class Article extends React.PureComponent<Props> {
     const { id, title, html } = article;
 
     return (
-      <Section>
+      <Section element="article">
         <ArticleHead article={article} />
         <Title>
           {title}

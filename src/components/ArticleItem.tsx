@@ -1,4 +1,4 @@
-import { Link as RouterLink } from '@reach/router';
+import { Link as ArticleLink } from '@reach/router';
 import ConditionalDiv from 'components/ConditionalDiv';
 import { format } from 'date-fns';
 import { ArticleEntity } from 'models/Article';
@@ -10,20 +10,24 @@ interface Props {
 }
 
 export default function ArticleItem({ article }: Props) {
+  const articleLink = `/article/${article.id}`;
+
   return (
-    <RouterLink to={`/article/${article.id}`} css={Margins.verticalList.xSmall}>
-      <div css={Flex.horizontal}>
-        <ArticleTitle title={article.title} />{' '}
-        <ArticleDate date={article.date} />
-      </div>
-      <ArticleSummary summary={article.summary} />
-    </RouterLink>
+    <article css={Margins.verticalList.xSmall}>
+      <ArticleLink to={articleLink}>
+        <header css={Flex.horizontal}>
+          <ArticleTitle title={article.title} />{' '}
+          <ArticleDate date={article.date} />
+        </header>
+        <ArticleSummary summary={article.summary} />
+      </ArticleLink>
+    </article>
   );
 }
 
 function ArticleTitle({ title }: { title: string }) {
   return (
-    <div
+    <h3
       css={[
         Paddings.vertical.xxSmall,
         Margins.vertical.xxSmall,
@@ -37,7 +41,7 @@ function ArticleTitle({ title }: { title: string }) {
       ]}
     >
       {title}
-    </div>
+    </h3>
   );
 }
 
