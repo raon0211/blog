@@ -194,7 +194,7 @@ function convertDisplayFormula(content) {
 
 function convertTranslatedWord(content) {
   return content.replace(
-    /\^(.+?)\^/g,
+    /\^([^<>]+?)\^/g,
     (_, translatedWord) => `<sup>${translatedWord}</sup>`
   );
 }
@@ -206,9 +206,9 @@ function chain(...fns) {
 
 function processFormulas(content) {
   return chain(
-    convertTranslatedWord,
     convertDisplayFormula,
-    convertInlineFormula
+    convertInlineFormula,
+    convertTranslatedWord
   )(content);
 }
 
