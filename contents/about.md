@@ -28,9 +28,11 @@
 - 2018년 7월 ~
 - Frontend Developer
 - React, MobX, CSS Modules with SCSS, Next.js, Jest, TypeScript
+- Docker, Go/CD, Travis CI
 
 ### 참여한 프로젝트
 
+- KEB하나은행 제휴 주택청약종합저축
 - [수협은행 제휴 비대면 계좌개설](https://www.bloter.net/archives/325570)
 - [KEB하나은행 제휴 온라인 환전](https://blog.toss.im/2018/07/09/toss/tips/currency-exchange/)
 - 신용카드 맞춤추천, 일회성 모금 계좌, 내 부동산 시세조회 등
