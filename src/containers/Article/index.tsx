@@ -4,9 +4,12 @@ import { prefetch, withRouteData } from 'react-static';
 import Markdown from '../../components/Markdown';
 import Section from '../../components/Section';
 import { ArticleEntity } from '../../models/Article';
-import { Title } from '../../style/components';
+import { Title, metaCss } from '../../style/components';
 import ArticleHead from './components/ArticleHead';
 import ArticleMeta from './components/ArticleMeta';
+import { Flipped } from 'react-flip-toolkit';
+import styled from '@emotion/styled';
+import FadeInOut from 'components/FadeIn';
 
 interface Props {
   article: ArticleEntity;
@@ -25,18 +28,35 @@ class Article extends React.PureComponent<Props> {
       <Section element="article">
         <ArticleHead article={article} />
         <Title>
-          {title}
-          <ArticleMeta value={article.summary} css={{ fontSize: '1.1rem' }} />
-          <ArticleMeta
-            value={article.date}
-            formatter={date => format(date, 'YYYY. M. D.')}
-          />
+          <Flipped flipId={title}>
+            <TitleContainer>{title}</TitleContainer>
+          </Flipped>
+          <Flipped flipId={article.summary}>
+            <SummaryContainer>{article.summary}</SummaryContainer>
+          </Flipped>
+          <FadeInOut>
+            <ArticleMeta
+              value={article.date}
+              formatter={date => format(date, 'YYYY. M. D.')}
+            />
+          </FadeInOut>
         </Title>
-        <Markdown html={html} />
+        <FadeInOut>
+          <Markdown html={html} />
+        </FadeInOut>
       </Section>
     );
   }
 }
+
+const TitleContainer = styled.div`
+  display: inline-block;
+`;
+
+const SummaryContainer = styled.div`
+  ${metaCss};
+  font-size: 1.1rem;
+`;
 
 interface RouteData {
   content: ArticleEntity;

@@ -4,6 +4,7 @@ import { format } from 'date-fns';
 import { ArticleEntity } from 'models/Article';
 import React, { useCallback, useEffect, useRef } from 'react';
 import { Flex, Margins, Paddings, Typography } from '../style/constants';
+import { Flipped } from 'react-flip-toolkit';
 
 interface Props {
   article: Pick<ArticleEntity, 'id' | 'title' | 'summary' | 'date'>;
@@ -27,21 +28,23 @@ export default function ArticleItem({ article }: Props) {
 
 function ArticleTitle({ title }: { title: string }) {
   return (
-    <h3
-      css={[
-        Paddings.vertical.xxSmall,
-        Margins.vertical.xxSmall,
-        Typography.oneLine,
-        Typography.hideWithEllipsis,
-        {
-          fontSize: '1.05rem',
-          fontWeight: 500,
-          textDecoration: 'none',
-        },
-      ]}
-    >
-      {title}
-    </h3>
+    <Flipped flipId={title}>
+      <h3
+        css={[
+          Paddings.vertical.xxSmall,
+          Margins.vertical.xxSmall,
+          Typography.oneLine,
+          Typography.hideWithEllipsis,
+          {
+            fontSize: '1.05rem',
+            fontWeight: 500,
+            textDecoration: 'none',
+          },
+        ]}
+      >
+        {title}
+      </h3>
+    </Flipped>
   );
 }
 
@@ -60,14 +63,21 @@ function ArticleDate({ date }: { date: Date | undefined }) {
 }
 
 function ArticleSummary({ summary }: { summary?: string }) {
+  if (summary === undefined) {
+    return null;
+  }
+
   return (
-    <ConditionalDiv
-      value={summary}
-      css={[
-        Typography.secondaryTextSans,
-        Margins.bottom.regular,
-        Paddings.left.xSmall,
-      ]}
-    />
+    <Flipped flipId={summary}>
+      <div
+        css={[
+          Typography.secondaryTextSans,
+          Margins.bottom.regular,
+          Paddings.left.xSmall,
+        ]}
+      >
+        {summary}
+      </div>
+    </Flipped>
   );
 }

@@ -122,6 +122,7 @@ const secondaryText = {
   fontWeight: 400,
   lineHeight,
   letterSpacing,
+  display: 'inline-block',
 };
 
 export const Typography = {

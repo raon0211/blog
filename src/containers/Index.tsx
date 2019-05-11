@@ -9,6 +9,7 @@ import { ArticleEntity } from '../models/Article';
 import { Heading, Title } from '../style/components';
 import { ButtonStyles } from '../style/components/button';
 import { Margins } from '../style/constants';
+import FadeInOut from 'components/FadeIn';
 
 const siteDescription =
   '웹 생태계와 함수형 프로그래밍을 사랑하는 개발자의 글 묶음';
@@ -32,18 +33,20 @@ function Index({ content, recentArticles }: Props) {
         />
         <title>Sojin Park</title>
       </Head>
-      <Section>
-        <Title>반가워요</Title>
-        <Markdown html={content.html} />
-        <div css={[Margins.top.xLarge]}>
-          <InternalLink css={ButtonStyles.primary} href="/about">
-            소개 보기 &rarr;
-          </InternalLink>
-          <InternalLink css={ButtonStyles.secondary} href="/blog">
-            끄적끄적 &rarr;
-          </InternalLink>
-        </div>
-      </Section>
+      <FadeInOut>
+        <Section>
+          <Title>반가워요</Title>
+          <Markdown html={content.html} />
+          <div css={[Margins.top.xLarge]}>
+            <InternalLink css={ButtonStyles.primary} href="/about">
+              소개 보기 &rarr;
+            </InternalLink>
+            <InternalLink css={ButtonStyles.secondary} href="/blog">
+              끄적끄적 &rarr;
+            </InternalLink>
+          </div>
+        </Section>
+      </FadeInOut>
       <Section>
         <Heading>최근 업데이트</Heading>
         {recentArticles.map(article => (
