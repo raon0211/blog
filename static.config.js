@@ -231,7 +231,7 @@ function createLinkMap(markdowns) {
 }
 
 function extractKeywords(data) {
-  if (data.keywords === undefined) {
+  if (data.keywords == undefined) {
     return [];
   }
 
