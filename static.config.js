@@ -53,7 +53,7 @@ function getRoutes() {
       component: 'src/containers/Index',
       getData: () => ({
         content: createArticle(indexMarkdown, {
-          id: 'Jin',
+          title: 'Jin',
           linkMap: wikiLinkMap,
         }),
         recentArticles: [...blogArticles, ...wikiArticles]
@@ -72,7 +72,7 @@ function getRoutes() {
       component: 'src/containers/Article',
       getData: () => ({
         content: createArticle(aboutMarkdown, {
-          id: '소개',
+          title: '소개',
           linkMap: wikiLinkMap,
         }),
       }),
@@ -97,6 +97,10 @@ function getRoutes() {
     },
     ...getArticleRoutes(wikiArticles),
     ...getArticleRoutes(blogArticles),
+    {
+      path: '404',
+      component: 'src/containers/404',
+    },
   ];
 }
 
@@ -139,10 +143,10 @@ function getArticlePath(articleId) {
 }
 
 function getArticles(markdowns) {
-  return Object.keys(markdowns).map(id => {
-    const articleMarkdown = markdowns[id];
+  return Object.keys(markdowns).map(title => {
+    const articleMarkdown = markdowns[title];
     return createArticle(articleMarkdown, {
-      id: id,
+      title,
       linkMap: wikiLinkMap,
     });
   });
@@ -160,18 +164,20 @@ function getArticleRoutes(articles) {
   });
 }
 
-function createArticle(markdown, { id, linkMap }) {
+function createArticle(markdown, { title, linkMap }) {
+  const articleId = formatArticleId(title);
+
   const { content, data } = grayMatter(markdown);
   const { html, linkedArticleIds } = linkContent(
     marked(processFormulas(content)),
-    id,
+    articleId,
     linkMap
   );
 
   return {
     html,
-    id,
-    title: decamelize(id),
+    id: articleId,
+    title: decamelize(title),
     summary: data.summary,
     markdown,
     ...data,
@@ -261,4 +267,8 @@ function linkContent(html, id, linkMap) {
 
 function decamelize(str) {
   return str.replace(/\_/g, ' ');
+}
+
+function formatArticleId(title) {
+  return title.toLocaleLowerCase().replace(/\_/g, '-');
 }

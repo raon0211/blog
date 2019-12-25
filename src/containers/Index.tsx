@@ -24,7 +24,6 @@ function Index({ content, recentArticles }: Props) {
     <>
       <Head>
         <meta name="description" content={siteDescription} />
-
         <OpenGraphs
           title="Sojin Park"
           type="article"

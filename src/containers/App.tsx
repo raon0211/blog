@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Root, Routes } from 'react-static';
 import Header from '../components/Header';
 import '../static/katex.min.css';
@@ -14,13 +14,15 @@ export default function App() {
   return (
     <Location>
       {({ location }) => {
+        const key = location.pathname;
+
         return (
-          <Flipper flipKey={location.pathname}>
+          <Flipper flipKey={key}>
             <Root>
               <Header />
               <main css={Containers.wrap}>
                 <PoseGroup>
-                  <Routes key={location.pathname} />
+                  <Routes key={key} />
                 </PoseGroup>
               </main>
             </Root>
