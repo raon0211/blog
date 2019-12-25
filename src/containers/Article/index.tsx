@@ -10,6 +10,7 @@ import ArticleMeta from './components/ArticleMeta';
 import { Flipped } from 'react-flip-toolkit';
 import styled from '@emotion/styled';
 import FadeInOut from 'components/FadeIn';
+import OpenGraphs from 'components/OpenGraphs';
 
 interface Props {
   article: ArticleEntity;
@@ -22,10 +23,16 @@ class Article extends React.PureComponent<Props> {
 
   public render() {
     const { article } = this.props;
-    const { id, title, html } = article;
+    const { title, html, summary = '', url, date } = article;
 
     return (
       <Section element="article">
+        <OpenGraphs
+          title={title}
+          description={summary}
+          url={url}
+          updatedDate={date}
+        />
         <ArticleHead article={article} />
         <Title>
           <Flipped flipId={title}>

@@ -26,7 +26,6 @@ export default function OpenGraphs({
       {updatedDate !== undefined ? (
         <meta property="og:updated_time" content={updatedDate.toString()} />
       ) : null}
-
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />

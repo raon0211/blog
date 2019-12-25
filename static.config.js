@@ -182,6 +182,7 @@ function createArticle(markdown, { title, linkMap }) {
     markdown,
     ...data,
     date: data.date ? new Date(data.date) : undefined,
+    url: getArticlePath(articleId),
     externalLinks: linkedArticleIds.map(getArticlePath),
   };
 }
@@ -270,5 +271,8 @@ function decamelize(str) {
 }
 
 function formatArticleId(title) {
-  return title.toLocaleLowerCase().replace(/\_/g, '-');
+  return title
+    .trim()
+    .toLocaleLowerCase()
+    .replace(/\_/g, '-');
 }
